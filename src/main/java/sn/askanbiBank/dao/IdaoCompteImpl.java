@@ -19,9 +19,8 @@ public class IdaoCompteImpl  implements IdaoCompte{
 	}
 
 	@Override
-	public Compte update(Compte t) {
+	public void update(Compte t) {
 		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
@@ -32,6 +31,12 @@ public class IdaoCompteImpl  implements IdaoCompte{
 
 	@Override
 	public Boolean active(Compte t) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Compte getByID(Long id) {
 		// TODO Auto-generated method stub
 		return null;
 	}

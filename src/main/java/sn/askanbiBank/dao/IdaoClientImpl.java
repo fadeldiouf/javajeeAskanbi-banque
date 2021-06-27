@@ -28,7 +28,8 @@ public class IdaoClientImpl implements IdaoClient{
 	     pst.setString(7, t.getCivilite());
 	     pst.setString(8, t.getGenre());
 	     pst.setLong(9, t.getCni());
-	     pst.execute();
+	     pst.executeUpdate();
+	     pst.close();   
 	     
 	      }catch (SQLException e) {
 				e.printStackTrace();
@@ -43,7 +44,7 @@ public class IdaoClientImpl implements IdaoClient{
 		try {
 			pst=con.prepareStatement(sql);
 			rs=pst.executeQuery();
-			while(rs.next());
+			while(rs.next()) {
 			Client c = new Client();
 			c.setNom(rs.getString("nom"));
 			c.setPrenom(rs.getString("prenom"));
@@ -55,6 +56,8 @@ public class IdaoClientImpl implements IdaoClient{
 			c.setGenre(rs.getString("genre"));
 			c.setCni(rs.getLong("cni"));
 			liste.add(c);
+			}
+			pst.close(); 
 		} catch (Exception e) {
 			
 		}
@@ -62,15 +65,21 @@ public class IdaoClientImpl implements IdaoClient{
 	}
 
 	@Override
-	public Client update(Client t) {
-		// TODO Auto-generated method stub
-		return null;
+	public void update(Client t) {
+		// TODO Auto-generated method stub 
+	
 	}
 
 	@Override
 	public void delete(Long id) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public Client getByID(Long id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

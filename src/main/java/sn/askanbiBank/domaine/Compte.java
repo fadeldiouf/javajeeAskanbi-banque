@@ -1,6 +1,12 @@
 package sn.askanbiBank.domaine;
 
-public class Compte {
+import java.io.Serializable;
+
+public class  Compte implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private  Long idcompte;
 	private Client client;
 	private Long num_compte;
