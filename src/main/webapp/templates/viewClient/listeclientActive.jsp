@@ -64,13 +64,13 @@
                     <th>Date_naiss</th>
                     <th>Telephone</th>
                     <th>Email</th>
-                    <th>Civilite</th>
-                    <th>genre</th>
                     <th>Cni</th>
+                    <th>Status</th>
+                    <th>Actions</th>
                   </tr>
                   </thead>
-                  <c:forEach items="${model.clients}" var="c">
                   <tbody>
+                  <c:forEach items="${model.clients}" var="c">
                   <tr>
                     <th>${c.nom}</th>
                     <th>${c.prenom}</th>
@@ -78,12 +78,15 @@
                     <th>${c.datenaissance}</th>
                     <th>${c.telephone}</th>
                     <th>${c.email}</th>
-                    <th>${c.civilite}</th>
-                    <th>${c.genre}</th>
                     <th>${c.cni}</th>
+                    <th>Status</th>
+                    <th> 
+                     <a href="#" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
+                     <a href="#" class="btn btn-primary btn-sm">  <i class="fas fa-edit" ></i>  </a>                  
+                    </th>
                   </tr>
-                  </tbody>
                   </c:forEach>
+                  </tbody>
                   <tfoot>
                   <tr>
                     <th>Nom</th>
@@ -92,9 +95,9 @@
                     <th>Date_naiss</th>
                     <th>Telephone</th>
                     <th>Email</th>
-                    <th>Civilite</th>
-                    <th>genre</th>
                     <th>Cni</th>
+                    <th>Status</th>
+                    <th>Actions</th>
                   </tr>                 
                   </tfoot>
                 </table>

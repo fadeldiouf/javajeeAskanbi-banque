@@ -31,13 +31,20 @@ public class ListClient extends HttpServlet {
 		metier= new IdaoClientImpl();
 	}
 	@Override
-	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		
+		doPost(request, response);
+
+	}
+	@Override
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		ClientModel model = new ClientModel();
 		List<Client> clients= metier.liste();
 		model.setClients(clients);
-		req.setAttribute("model",model);
-		req.getRequestDispatcher("listeclientActive.jsp").forward(req, resp);
+		request.setAttribute("model",model);
+		request.getRequestDispatcher("listeclientActive.jsp").forward(request, response);
 	}
 	
 

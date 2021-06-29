@@ -74,7 +74,7 @@
                   <tr>
                     <th>${c.nom}</th>
                     <th>${c.prenom}</th>
-                    <th>${c.adresse}</th>
+                    <th>${c.addresse}</th>
                     <th>${c.datenaissance}</th>
                     <th>${c.telephone}</th>
                     <th>${c.email}</th>

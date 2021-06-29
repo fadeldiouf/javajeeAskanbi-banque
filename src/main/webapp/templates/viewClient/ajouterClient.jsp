@@ -1,4 +1,4 @@
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="index-header.jsp"%>
 <%@ include file="index-footer.jsp"%>
 
@@ -29,15 +29,8 @@
 <body class="hold-transition sidebar-mini">
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <!-- Main content -->
     <section class="content">
       <div class="container-fluid">
-        <!-- SELECT2 EXAMPLE -->
-          <!-- /.card-header -->
-
-            <!-- iCheck -->
-        <!-- /.row -->
         <div class="row">
           <div class="col-md-12">
             <div class="card card-default">
@@ -72,193 +65,197 @@
               </div>
               <div class="card-body">
                 <!-- /.form group -->
-                <div class="form-group">
-                <label for="exampleInputEmail1">Nom</label>
-                <div class="input-group mb-3">
-		          <input type="text" class="form-control" placeholder=" nom">
-		          <div class="input-group-append">
-		            <div class="input-group-text">
-		              <span class="fas fa-user"></span>
-		            </div>
-		          </div>
-		        </div>
-                </div>
-                  <!-- /.form group -->
-                  <div class="form-group">
-                <label for="exampleInputEmail1">Prenom</label>
-                <div class="input-group mb-3">
-		          <input type="text" class="form-control" placeholder="prenom">
-		          <div class="input-group-append">
-		            <div class="input-group-text">
-		              <span class="fas fa-user"></span>
-		            </div>
-		          </div>
-		        </div>
-                </div>
-                <!-- /.form group -->
-                <div class="form-group">
-                <label for="exampleInputEmail1">Adresse</label>
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Adresse">
-                  <div class="input-group-append">
-                    <span class="input-group-text"><i class="fas fa-check"></i></span>
-                  </div>
-                </div>
-                </div>
-                <!-- Date mm/dd/yyyy -->
-                <div class="form-group">
-                  <label>Date de Naissance:</label>
-                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
-                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                        </div>
+			<form action="ajouterClient" method="post">
+				                <div class="form-group">
+				                <label for="exampleInputEmail1">Nom</label>
+				                <div class="input-group mb-3">
+						          <input type="text" class="form-control" placeholder=" nom" name="nom">
+						          <div class="input-group-append">
+						            <div class="input-group-text">
+						              <span class="fas fa-user"></span>
+						            </div>
+						          </div>
+						        </div>
+				                </div>
+				                  <!-- /.form group -->
+				                  <div class="form-group">
+				                <label for="exampleInputEmail1">Prenom</label>
+				                <div class="input-group mb-3">
+						          <input type="text" class="form-control" placeholder="prenom" name="premon">
+						          <div class="input-group-append">
+						            <div class="input-group-text">
+						              <span class="fas fa-user"></span>
+						            </div>
+						          </div>
+						        </div>
+				                </div>
+				                <!-- /.form group -->
+				                <div class="form-group">
+				                <label for="exampleInputEmail1">Adresse</label>
+				                <div class="input-group mb-3">
+				                  <input type="text" class="form-control" placeholder="Adresse" name="adresse">
+				                  <div class="input-group-append">
+				                    <span class="input-group-text"><i class="fas fa-check"></i></span>
+				                  </div>
+				                </div>
+				                </div>
+				                <!-- Date mm/dd/yyyy -->
+				                <div class="form-group">
+				                  <label>Date de Naissance:</label>
+				                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+				                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" name="datenaissance" />
+				                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+				                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+				                        </div>
+				                    </div>
+				                </div>
+				              </div>
+				              <!-- /.card-body -->
+				            </div>
+				
+				          </div>
+				          <!-- /.col (left) -->
+				          <div class="col-md-6">
+				            <div class="card card-primary">
+				              <div class="card-header">
+				                <h3 class="card-title">Info client</h3>
+				              </div>
+				              <div class="card-body">
+				                <!-- /.form group -->
+				                <div class="form-group">
+				                  <label>Telephone:</label>
+				                  <div class="input-group">
+				                    <div class="input-group-prepend">
+				                      <span class="input-group-text"><i class="fas fa-phone"></i></span>
+				                    </div>
+				                    <input type="text" class="form-control"
+				                           data-inputmask="'mask': ['99-999-99-99 [x99999]', '+099 99 99 9999[9]-9999']" data-mask name="telephone">
+				                  </div>
+				                  <!-- /.input group -->
+				                  <!-- /.form group -->
+				                </div>
+				                <div class="form-group">
+				                  <label>Email:</label>
+				                <div class="input-group mb-3">
+				                  <div class="input-group-prepend">
+				                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+				                  </div>
+				                  <input type="email" class="form-control" placeholder="Email" name="email">
+				                </div>
+				                </div>
+				                <!-- /.form group -->
+				                <div class="row">
+				                    <div class="col-sm-6">
+				                      <!-- select -->
+				                      <div class="form-group">
+				                        <label>Civilite</label>
+				                        <select class="custom-select" name="civilite">
+				                          <option value="marie" selected>Marie</option>
+				                          <option value="celibataire">Celibataire</option>
+				
+				                        </select>
+				                      </div>
+				                    </div>
+				                    <div class="col-sm-6">
+				                    <label for="radioPrimary3">
+				                          Genre
+				                        </label>
+				                    <div class="form-group clearfix">
+				                      <div class="icheck-primary d-inline">
+				                        <input type="radio" id="radioPrimary1" name="genre" checked>
+				                        <label for="radioPrimary1">
+				                          M
+				                        </label>
+				                      </div>
+				                      <div class="icheck-primary d-inline">
+				                        <input type="radio" id="radioPrimary2" name="genre">
+				                        <label for="radioPrimary2">
+				                          F
+				                        </label>
+				                      </div>
+				                    </div>
+				                  </div>
+				                </div>
+				                <!-- /.form group -->
+				                <div class="form-group">
+				                  <label>CNI</label>
+				                <div class="input-group">
+				                  <input type="text" class="form-control" name="cni">
+				                  <div class="input-group-append">
+				                    <span class="input-group-text">123</span>
+				                  </div>
+				                </div>
+				                <!-- /.form group -->
+				              </div>
+				              </div>
+				            </div>
+				          </div>
+				            </div>
+				                <button class="btn btn-primary" onclick="stepper.next()">Suivant</button>
+				               </div>
+				                  <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+				                  <div class="col-md-6">
+				
+								<div class="card card-primary">
+								  <div class="card-header">
+								    <h3 class="card-title">Info client</h3>
+								  </div>
+								  <div class="card-body">
+				    <!-- /.form group -->
+				              <div class="form-group">
+				                  <div class="input-group mb-3">
+				                  <input type="text" class="form-control" placeholder="numero Compte" disabled>
+				                  <div class="input-group-append">
+				                    <span class="input-group-text">12..</span>
+				                  </div>
+				                </div>
+				              </div>
+				      <!-- /.form group -->
+				            <div class="form-group">
+				                <div class="input-group mb-3">
+				                  <div class="input-group-prepend">
+				                    <span class="input-group-text">Fcfa</span>
+				                  </div>
+				                  <input type="text" class="form-control" placeholder="Solde" name="solde">
+				                </div>
+				              </div>
+				    <!-- /.form group -->
+				
+				    <div class="form-group">
+				                  <select class="form-control  select2bs4"  name="type_compte">
+				                    <option  value="courant" selected="selected">Courant</option>
+				                    <option value="epargne">Epargne</option>
+				                  </select>
+				                </div>
+				                <div class="input-group mb-3">
+				          <input type="text" class="form-control "   placeholder="Login" name="usename">
+				          <div class="input-group-append">
+				            <div class="input-group-text">
+				              <span class="fas fa-envelope"></span>
+				            </div>
+				          </div>
+				        </div>
+				        <div class="input-group mb-3">
+				          <input type="password" class="form-control "   placeholder="Password" name="password">
+				          <div class="input-group-append">
+				            <div class="input-group-text">
+				              <span class="fas fa-lock"></span>
+				            </div>
+				          </div>
+				        </div>
+				
+				  <!-- /.card-body -->
+				               </div>
+				
+				                </div>
+				                  </div>
+				                      <button class="btn btn-primary" onclick="stepper.previous()">Precedant</button>
+				                      <button type="submit" class="btn btn-primary">Enregistrer</button>
+                       
+                
+                
                     </div>
-                </div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-
-          </div>
-          <!-- /.col (left) -->
-          <div class="col-md-6">
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Info client</h3>
-              </div>
-              <div class="card-body">
-                <!-- /.form group -->
-                <div class="form-group">
-                  <label>Telephone:</label>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                    </div>
-                    <input type="text" class="form-control"
-                           data-inputmask="'mask': ['99-999-99-99 [x99999]', '+099 99 99 9999[9]-9999']" data-mask>
-                  </div>
-                  <!-- /.input group -->
-                  <!-- /.form group -->
-                </div>
-                <div class="form-group">
-                  <label>Email:</label>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                  </div>
-                  <input type="email" class="form-control" placeholder="Email">
-                </div>
-                </div>
-                <!-- /.form group -->
-                <div class="row">
-                    <div class="col-sm-6">
-                      <!-- select -->
-                      <div class="form-group">
-                        <label>Civilite</label>
-                        <select class="custom-select">
-                          <option>Marié</option>
-                          <option>Celibataire</option>
-
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                    <label for="radioPrimary3">
-                          Genre
-                        </label>
-                    <div class="form-group clearfix">
-                      <div class="icheck-primary d-inline">
-                        <input type="radio" id="radioPrimary1" name="r1" checked>
-                        <label for="radioPrimary1">
-                          M
-                        </label>
-                      </div>
-                      <div class="icheck-primary d-inline">
-                        <input type="radio" id="radioPrimary2" name="r1">
-                        <label for="radioPrimary2">
-                          F
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- /.form group -->
-                <div class="form-group">
-                  <label>CNI</label>
-                <div class="input-group">
-                  <input type="text" class="form-control">
-                  <div class="input-group-append">
-                    <span class="input-group-text">123</span>
-                  </div>
-                </div>
-                <!-- /.form group -->
-              </div>
-              </div>
-            </div>
-          </div>
-        </div>
-              <!-- /.card-body -->
-                <button class="btn btn-primary" onclick="stepper.next()">Suivant</button>
-        </div>
-                  <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
-                  <div class="col-md-6">
-
-<div class="card card-primary">
-  <div class="card-header">
-    <h3 class="card-title">Info client</h3>
-  </div>
-  <div class="card-body">
-    <!-- /.form group -->
-              <div class="form-group">
-                  <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="numero Compte" disabled>
-                  <div class="input-group-append">
-                    <span class="input-group-text">12..</span>
-                  </div>
-                </div>
-              </div>
-      <!-- /.form group -->
-            <div class="form-group">
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Fcfa</span>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Solde">
-                </div>
-              </div>
-    <!-- /.form group -->
-
-    <div class="form-group">
-                  <select class="form-control  select2bs4"  placeholder="Password">
-                    <option selected="selected">Courant</option>
-                    <option>Epargne</option>
-                  </select>
-                </div>
-                <div class="input-group mb-3">
-          <input type="text" class="form-control "   placeholder="Login">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control "   placeholder="Password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-
-  <!-- /.card-body -->
-</div>
-
-</div>
-                  </div>
-                      <button class="btn btn-primary" onclick="stepper.previous()">Precedant</button>
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
+                    </form>
                   </div>
                 </div>
               </div>
@@ -279,7 +276,7 @@
   </div>
   <!-- /.content-wrapper -->
   <footer class="main-footer">
-    <strong>Copyright &copy; ASKANBIBANK
+    <strong>Copyright &copy; ASKANBIBANK</strong>
   </footer>
 
   <!-- Control Sidebar -->
