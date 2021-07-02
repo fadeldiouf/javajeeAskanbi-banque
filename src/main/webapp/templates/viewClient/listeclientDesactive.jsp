@@ -92,8 +92,7 @@
                     <td>Win 95+</td>
                     <td>5.5</td>
                     <td>A</td>
-                  </tr>
-                  <tr>
+                  </tr><tr>
                     <td>Trident</td>
                     <td>Internet
                       Explorer 6
@@ -102,6 +101,7 @@
                     <td>6</td>
                     <td>A</td>
                   </tr>
+                  
                   <tr>
                     <td>Trident</td>
                     <td>Internet Explorer 7</td>
@@ -122,14 +122,14 @@
                     <td>Win 98+ / OSX.2+</td>
                     <td>1.7</td>
                     <td>A</td>
-                  </tr>
-                  <tr>
+                  </tr><tr>
                     <td>Gecko</td>
                     <td>Firefox 1.5</td>
                     <td>Win 98+ / OSX.2+</td>
                     <td>1.8</td>
                     <td>A</td>
                   </tr>
+                  
                   <tr>
                     <td>Gecko</td>
                     <td>Firefox 2.0</td>

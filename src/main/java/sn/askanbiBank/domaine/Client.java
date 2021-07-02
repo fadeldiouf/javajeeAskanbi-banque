@@ -1,99 +1,121 @@
 package sn.askanbiBank.domaine;
 
-public class Client {
-	private Long idclient;
+import java.io.Serializable;
+
+public class Client  implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	private int idclient;
 	private String nom;
 	private String prenom;
-	private String addresse;
-	private String datenaiss;
+	private String adresse ;
+	private String datenaissance 	;
 	private String telephone;
 	private String email;
 	private String civilite;
 	private String genre;
-	private Long cni;
+	private String cni;
 	
 	public Client () {
 		super();
 	}
-	public Client (Long idclient,String nom, String prenom,String addresse,String datenaiss,String telephone
-			,String email,String civilite,String genre,Long cni) {
+
+	public Client(String nom, String prenom, String adresse, String datenaissance, String telephone,
+			String email, String civilite, String genre, String cni) {
 		super();
-		this.idclient=idclient;
-		this.nom=nom;
-		this.prenom=prenom;
-		this.addresse=addresse;
-		this.datenaiss=datenaiss;
-		this.telephone=telephone;
-		this.email=email;
-		this.civilite=civilite;
-		this.genre=genre;
-		this.cni=cni;
-		
-		
-		
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.datenaissance = datenaissance;
+		this.telephone = telephone;
+		this.email = email;
+		this.civilite = civilite;
+		this.genre = genre;
+		this.cni = cni;
 	}
-	public Long getIdclient() {
+
+	public int getIdclient() {
 		return idclient;
 	}
-	public void setIdclient(Long idclient) {
+
+	public void setIdclient(int idclient) {
 		this.idclient = idclient;
 	}
+
 	public String getNom() {
 		return nom;
 	}
+
 	public void setNom(String nom) {
 		this.nom = nom;
 	}
+
 	public String getPrenom() {
 		return prenom;
 	}
+
 	public void setPrenom(String prenom) {
 		this.prenom = prenom;
 	}
-	public String getAddresse() {
-		return addresse;
+
+	public String getAdresse() {
+		return adresse;
 	}
-	public void setAddresse(String addresse) {
-		this.addresse = addresse;
+
+	public void setAdresse(String adresse) {
+		this.adresse = adresse;
 	}
-	public String getDatenaiss() {
-		return datenaiss;
+
+	public String getDatenaissance() {
+		return datenaissance;
 	}
-	public void setDatenaiss(String datenaiss) {
-		this.datenaiss = datenaiss;
+
+	public void setDatenaissance(String datenaissance) {
+		this.datenaissance = datenaissance;
 	}
+
 	public String getTelephone() {
 		return telephone;
 	}
+
 	public void setTelephone(String telephone) {
 		this.telephone = telephone;
 	}
+
 	public String getEmail() {
 		return email;
 	}
+
 	public void setEmail(String email) {
 		this.email = email;
 	}
+
 	public String getCivilite() {
 		return civilite;
 	}
+
 	public void setCivilite(String civilite) {
 		this.civilite = civilite;
 	}
+
 	public String getGenre() {
 		return genre;
 	}
+
 	public void setGenre(String genre) {
 		this.genre = genre;
 	}
-	public Long getCni() {
+
+	public String getCni() {
 		return cni;
 	}
-	public void setCni(Long cni) {
+
+	public void setCni(String cni) {
 		this.cni = cni;
 	}
 	
-	
-	
+		
 
 }

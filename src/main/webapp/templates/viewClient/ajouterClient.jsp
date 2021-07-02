@@ -1,9 +1,11 @@
-
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="index-header.jsp"%>
 <%@ include file="index-footer.jsp"%>
+<!DOCTYPE html>
+<html lang="en">
 
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
   <!-- daterange picker -->
@@ -25,23 +27,12 @@
   <link rel="stylesheet" href="../plugins/dropzone/min/dropzone.min.css">
   <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
-</head>
-<body class="hold-transition sidebar-mini">
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <!-- SELECT2 EXAMPLE -->
-          <!-- /.card-header -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form</title>
 
-            <!-- iCheck -->
-        <!-- /.row -->
-        <div class="row">
-          <div class="col-md-12">
-            <div class="card card-default">
-
+<<<<<<< HEAD
               <div class="card-body p-0">
                 <div class="bs-stepper">
                   <div class="bs-stepper-header" role="tablist">
@@ -204,59 +195,187 @@
         
                   <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
                   <div class="col-md-6">
+=======
+    <!-- Font Icon -->
+    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
 
-<div class="card card-primary">
-  <div class="card-header">
-    <h3 class="card-title">Info client</h3>
-  </div>
-  <div class="card-body">
-    <!-- /.form group -->
-              <div class="form-group">
-                  <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="numero Compte" disabled>
-                  <div class="input-group-append">
-                    <span class="input-group-text">12..</span>
-                  </div>
-                </div>
+    <!-- Main css -->
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+>>>>>>> 69f8add7c3193fa417b08e174bdb54fe44d95977
+
+<body>
+    <div class="content-wrapper md-2">
+    <div class="main">
+    <section class="content-header">
+        <div class="container-fluide">
+            <form method="POST" action="<%= request.getContextPath() %>/templates/viewClient/" class="signup-form">
+	                    <div class="row md-2">
+		                    <div class="col-md-6">
+			                    <div class="card card-primary">
+			                        <div class="card-header">
+			                          <h3 class="card-title">Info client</h3>
+			                         </div>
+						                  <div class="card-body">
+						                    <div class="row ">
+						                    <div class="col-md-6">
+						                    <div class="form-group">
+							                    <div class="input-group mb-2">
+							                    <div class="input-group-text">
+									                   <span class="fas fa-user"></span>
+									                </div>
+									             <input type="text" class="form-control" placeholder=" nom" name="nom">
+									              <div class="input-group-append">
+									              </div>
+									             </div>
+							                  </div>
+							                  </div>
+							                  <div class="col-md-6">
+							                  <div class="form-group">
+							                    <div class="input-group mb-2">
+							                        <div class="input-group-text">
+									                   <span class="fas fa-user"></span>
+									                </div>
+									             <input type="text" class="form-control" placeholder=" prenom" name="prenom">
+									              <div class="input-group-append">
+									              </div>
+									             </div>
+							                  </div>
+							                  </div>
+							                  </div>
+							                  <div class="form-group">
+							                    <div class="input-group mb-2">
+							                       <div class="input-group-text">
+									                   <span class="fas fa-user"></span>
+									                </div>
+									             <input type="text" class="form-control" placeholder=" Addresse" name="adresse">
+									              <div class="input-group-append">
+									              </div>
+									             </div>
+							                  </div>
+							                  <div class="form-group">
+							                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+							                    <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker"> 
+							                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+							                    </div>
+							                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" placeholder=" Date de naissance" name="datenaissance" />
+							                         
+							                        
+							                    </div>
+							                </div>
+							                <div class="form-group">
+							                   <div class="input-group">
+							                    <div class="input-group-prepend">
+							                      <span class="input-group-text"><i class="fas fa-phone"></i></span>
+							                    </div>
+							                    <input type="text" class="form-control" placeholder=" Telephone" name="telephone" >
+							                   </div>
+							                </div>
+							                <div class="form-group">
+							                <div class="input-group mb-3">
+							                  <div class="input-group-prepend">
+							                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+							                  </div>
+							                  <input type="email" class="form-control" placeholder="Email" name="email">
+							                </div>
+							                </div>
+			                                </div>
+			                     </div>
+		                    </div>
+		                    <div class="col-md-6">
+			                    <div class="card card-primary">
+			                        <div class="card-header">
+			                          <h3 class="card-title">Info client</h3>
+			                         </div>
+						                  <div class="card-body">
+							                 
+							                <div class="row">
+							                    <div class="col-sm-6">
+							                      <!-- select -->
+							                      <div class="form-group">
+							                        <select class="custom-select" name="civilite">
+							                          <option value="marie" selected>Marie</option>
+							                          <option value="celibataire">Celibataire</option>
+			
+							                        </select>
+							                      </div>
+							                    </div>
+							                    <div class="col-sm-6">
+							                      <!-- select -->
+							                      <div class="form-group">
+							                        <select class="custom-select" name="genre">
+							                          <option value="masculin" selected>Masculin</option>
+							                          <option value="feminin">Feminine</option>
+			
+							                        </select>
+							                      </div>
+							                    </div>
+							                  </div>
+							                  <div class="form-group">
+								                 <div class="input-group">
+								                 <div class="input-group-append">
+								                    <span class="input-group-text">123</span>
+								                  </div>
+								                  <input type="text" class="form-control"placeholder="CNI" name="cni">
+								                  
+								                </div>
+			                               </div>
+			                               <div class="form-group">
+				                <div class="input-group mb-3">
+				                  <div class="input-group-prepend">
+				                    <span class="input-group-text">Fcfa</span>
+				                  </div>
+				                  <input type="text" class="form-control" placeholder="Solde" name="solde">
+				                </div>
+				              </div>
+				    <!-- /.form group -->
+
+				               <div class="form-group">
+							       <select class="custom-select" name="genre">
+							         <option value="courant" selected>Courant</option>
+							           <option value="epargne">Epargne</option>
+			
+							            </select>
+							             </div>
+				                <div class="row">
+				                <div class="col-md-6">
+				                <div class="form-group">
+				                <div class="input-group mb-3">
+				                <div class="input-group-append">
+				            <div class="input-group-text">
+				              <span class="fas fa-envelope"></span>
+				            </div>
+				          </div>
+				          <input type="text" class="form-control "   placeholder="Usernane" name="username">
+				          
+				        </div>
+				        </div>
+				        </div>
+				         <div class="col-md-6">
+				         <div class="form-group">
+				        <div class="input-group mb-3">
+				        <div class="input-group-append">
+				            <div class="input-group-text">
+				              <span class="fas fa-lock"></span>
+				            </div>
+				          </div>
+				          <input type="password" class="form-control "   placeholder="Password" name="password">
+				        </div>
+				        </div>
+				        </div>
+			             </div>                 
+			               </div>
+		                   </div>
+	                       </div>
+                       
+                         </div>
+                    <button type="submit" class="btn btn-primary" value="ajouter" name="action">Enregistrer </button>
+                  </form>
               </div>
-      <!-- /.form group -->
-            <div class="form-group">
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text">Fcfa</span>
-                  </div>
-                  <input type="text" class="form-control" placeholder="Solde">
-                </div>
-              </div>
-    <!-- /.form group -->
-
-    <div class="form-group">
-                  <select class="form-control  select2bs4"  placeholder="Password">
-                    <option selected="selected">Courant</option>
-                    <option>Epargne</option>
-                  </select>
-                </div>
-                <div class="input-group mb-3">
-          <input type="text" class="form-control "   placeholder="Login">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-envelope"></span>
-            </div>
-          </div>
-        </div>
-        <div class="input-group mb-3">
-          <input type="password" class="form-control "   placeholder="Password">
-          <div class="input-group-append">
-            <div class="input-group-text">
-              <span class="fas fa-lock"></span>
-            </div>
-          </div>
-        </div>
-
-  <!-- /.card-body -->
+</section>
 </div>
-
 </div>
+<<<<<<< HEAD
                   </div>
                       <button class="btn btn-primary" onclick="stepper.previous()">Precedant</button>
                       <button type="submit" class="btn btn-primary">Submit</button>
@@ -284,16 +403,10 @@
   <footer class="main-footer">
     <strong>Copyright &copy; ASKANBIBANK
   </footer>
+=======
+>>>>>>> 69f8add7c3193fa417b08e174bdb54fe44d95977
 
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
-</div>
-<!-- ./wrapper -->
-
-<!-- jQuery -->
+<!-- Bootstrap 4 -->
 <script src="../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
@@ -401,6 +514,8 @@
   document.addEventListener('DOMContentLoaded', function () {
     window.stepper = new Stepper(document.querySelector('.bs-stepper'))
   })
+ var stepper = new Stepper(document.querySelector('.bs-stepper'))
+stepper.next()
 
   // DropzoneJS Demo Code Start
   Dropzone.autoDiscover = false
@@ -456,3 +571,9 @@
   // DropzoneJS Demo Code End
 </script>
 
+/script>
+
+<!-- Page specific script -->
+</body>
+
+</html>

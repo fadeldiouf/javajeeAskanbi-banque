@@ -1,25 +1,40 @@
 package sn.askanbiBank.domaine;
 
-public class Compte {
+import java.io.Serializable;
+import java.util.Date;
+
+public class  Compte implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private  Long idcompte;
-	private Client client;
+	private Long idclient;
 	private Long num_compte;
-	private Double solde;
+	private double solde;
+	private Date datecreation;
 	private Boolean active;
-	private String typecompte;
+	private String type_compte;
 	
 	public Compte() {
 		super();
+		
 	}
-	public Compte(Long idcompte,Client client,Long num_compte,Double solde,Boolean active,
-			String typecompte){
+	public Compte(Long idcompte, Long idclient, Long num_compte, double solde, Date datecreation, Boolean active,
+			String type_compte) {
 		super();
-		this.idcompte=idcompte;
-		this.client=client;
-		this.num_compte=num_compte;
+		this.idcompte = idcompte;
+		this.idclient = idclient;
+		this.num_compte = num_compte;
+		this.solde = solde;
+		this.datecreation = datecreation;
+		this.active = active;
+		this.type_compte = type_compte;
+	}
+	public Compte(double solde,String type_compte){
+		super();
 		this.solde=solde;
-		this.active=active;
-		this.typecompte=typecompte;
+		this.type_compte=type_compte;
 		
 	}
 	public Long getIdcompte() {
@@ -30,12 +45,7 @@ public class Compte {
 		this.idcompte=idcompte;
 		
 	}
-	public Client getClient() {
-		return client;
-	}
-	public void setClient(Client client) {
-		this.client=client;
-	}
+	
 	public Long getNum_compte() {
 		return num_compte;
 		
@@ -43,10 +53,10 @@ public class Compte {
 	public void setNum_compte(Long num_compte) {
 		this.num_compte=num_compte;
 	}
-	public Double getSolde() {
+	public double getSolde() {
 		return solde;
 	}
-	public void setSolde(Double solde) {
+	public void setSolde(double solde) {
 		this.solde=solde;
 	}
 	public Boolean getActive() {
@@ -57,13 +67,39 @@ public class Compte {
 		this.active=active;
 		
 	}
-	public String getTypecompte() {
-		return typecompte;
+	public String getType_compte() {
+		return type_compte;
 		
 	}
-	public void setTypecompte(String Typecompte) {
-		this.typecompte=Typecompte;
+	public void setType_compte(String Typecompte) {
+		this.type_compte=Typecompte;
 		
 	}
+	public Date getDatecreation() {
+		return datecreation;
+	}
+	public void setDatecreation(Date datecreation) {
+		this.datecreation = datecreation;
+	}
+	public Long getIdclient() {
+		return idclient;
+	}
+	public void setIdclient(Long idclient) {
+		this.idclient = idclient;
+	}
+	
+	public String getMatricule(int n) 
+    {
+        //choisissez un caractére au hasard à partir de cette chaîne
+        String str = "0123456789"; 
+  
+        StringBuilder s = new StringBuilder(n); 
+  
+        for (int i = 0; i < n; i++) { 
+            int index = (int)(str.length() * Math.random()); 
+            s.append(str.charAt(index)); 
+        } 
+        return s.toString(); 
+    } 
 
 }

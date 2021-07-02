@@ -1,6 +1,12 @@
 package sn.askanbiBank.domaine;
 
-public class User {
+import java.io.Serializable;
+
+public class User  implements Serializable{
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private Long iduser;
 	private Long idrole;
 	private Client client;
@@ -17,6 +23,12 @@ public class User {
 		this.iduser = iduser;
 		this.idrole = idrole;
 		this.client = client;
+		this.username = username;
+		this.password = password;
+	}
+
+	public User(String username, String password) {
+		super();
 		this.username = username;
 		this.password = password;
 	}
