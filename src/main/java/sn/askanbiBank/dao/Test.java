@@ -1,6 +1,5 @@
 package sn.askanbiBank.dao;
 
-import java.util.List;
 
 import sn.askanbiBank.domaine.Client;
 import sn.askanbiBank.domaine.Compte;
@@ -12,7 +11,7 @@ public class Test {
 //		IdaoClient metier  = new IdaoClientImpl();
 		IdaoAddCompte metier= new IdaoAddCompteImpl();
 	metier.addClient(new Client("diouf", "mbaye", "colobane", "12-05-1990", "776777777", "faloud.com", "celibataire",
-			"masculin","1642"), new Compte( 50000D, "courant"), new User("fadji@fadel", "passer"));
+			"masculin","1642"), new Compte( 50000d, "courant"), new User("fadji@fadel", "passer"));
 //	
 //		// TODO Auto-generated method stub
 //        List<Client> clients= metier.liste();

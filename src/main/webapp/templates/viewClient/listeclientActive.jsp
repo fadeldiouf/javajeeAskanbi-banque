@@ -82,7 +82,8 @@
                     <th>Status</th>
                     <th> 
                      <a href="#" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
-                     <a href="#" class="btn btn-primary btn-sm">  <i class="fas fa-edit" ></i>  </a>                  
+                     <a href="<%= request.getContextPath() %>/templates/viewClient?action=editer&id=${c.idclient}" class="btn btn-primary btn-sm">  
+                     <i class="fas fa-edit" ></i></a>                  
                     </th>
                   </tr>
                   </c:forEach>

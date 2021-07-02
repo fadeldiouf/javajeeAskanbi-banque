@@ -33,7 +33,7 @@ public class IdaoClientImpl implements IdaoClient{
 	     pst.executeUpdate();
 	     rs=pst.getGeneratedKeys();
 	     if ( rs.next() ) {
-	     t.setIdclient(rs.getLong(1));
+	     t.setIdclient(rs.getInt(1));
 	     } else {
 	     throw  new RuntimeException( "Échec de la création du client en base, aucun ID auto-généré retourné." );
 	     }
@@ -128,7 +128,7 @@ public class IdaoClientImpl implements IdaoClient{
 				 t =  new Client();
 				 c= new Compte();
 				 u= new User();
-				t.setIdclient(rs.getLong("idclient"));
+				t.setIdclient(rs.getInt("idclient"));
 				t.setNom(rs.getString("nom"));
 				t.setPrenom(rs.getString("prenom"));
 				t.setAdresse(rs.getString("adresse"));

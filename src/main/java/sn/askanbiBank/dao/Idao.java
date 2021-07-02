@@ -7,6 +7,6 @@ public interface Idao <T>{
 	public List<T> liste();
 	public void update (T t);
 	public void delete(Long id);
-	public T getByID (Long id);
+	public T getByID (int id);
 
 }

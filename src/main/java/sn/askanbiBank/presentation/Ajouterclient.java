@@ -1,6 +1,8 @@
 package sn.askanbiBank.presentation;
 
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.ParseException;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,7 +15,7 @@ import sn.askanbiBank.dao.IdaoAddCompteImpl;
 import sn.askanbiBank.domaine.Client;
 import sn.askanbiBank.domaine.Compte;
 import sn.askanbiBank.domaine.User;
-@WebServlet("/ajouterClient")
+@WebServlet("/ajouerClient")
 public class Ajouterclient extends HttpServlet {
 	/**
 	 * 
@@ -41,7 +43,7 @@ public class Ajouterclient extends HttpServlet {
 		String civilite =request.getParameter("civilite");
 		String genre = request.getParameter("genre");
 		String cni = request.getParameter("cni");
-		Double solde= java.lang.Double.valueOf(request.getParameter("solde")).doubleValue();
+		double solde = Double.parseDouble(request.getParameter("solde"));
 		String type_compte = request.getParameter("type_compte");
 		String username= request.getParameter("username");
 		String password =request.getParameter("password");
@@ -50,13 +52,12 @@ public class Ajouterclient extends HttpServlet {
 		User   user = new User(username, password);
 		metier.addClient(client, compte, user);
 		//redirection Apres enregistrement
-		request.getRequestDispatcher("templates/viewClient/listeclientActive").forward(request, response);
+		
+
+		request.getRequestDispatcher("/templates/viewClient/listeclientActive").forward(request, response);
 		
 		
 		
 		
 	}
-	
-	
-
 }

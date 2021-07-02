@@ -7,7 +7,7 @@ public class Client  implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private Long idclient;
+	private int idclient;
 	private String nom;
 	private String prenom;
 	private String adresse ;
@@ -36,11 +36,11 @@ public class Client  implements Serializable{
 		this.cni = cni;
 	}
 
-	public Long getIdclient() {
+	public int getIdclient() {
 		return idclient;
 	}
 
-	public void setIdclient(Long idclient) {
+	public void setIdclient(int idclient) {
 		this.idclient = idclient;
 	}
 

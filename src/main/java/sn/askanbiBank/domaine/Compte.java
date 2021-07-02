@@ -11,7 +11,7 @@ public class  Compte implements Serializable{
 	private  Long idcompte;
 	private Long idclient;
 	private Long num_compte;
-	private Double solde;
+	private double solde;
 	private Date datecreation;
 	private Boolean active;
 	private String type_compte;
@@ -20,7 +20,7 @@ public class  Compte implements Serializable{
 		super();
 		
 	}
-	public Compte(Long idcompte, Long idclient, Long num_compte, Double solde, Date datecreation, Boolean active,
+	public Compte(Long idcompte, Long idclient, Long num_compte, double solde, Date datecreation, Boolean active,
 			String type_compte) {
 		super();
 		this.idcompte = idcompte;
@@ -31,7 +31,7 @@ public class  Compte implements Serializable{
 		this.active = active;
 		this.type_compte = type_compte;
 	}
-	public Compte(Double solde,String type_compte){
+	public Compte(double solde,String type_compte){
 		super();
 		this.solde=solde;
 		this.type_compte=type_compte;
@@ -53,10 +53,10 @@ public class  Compte implements Serializable{
 	public void setNum_compte(Long num_compte) {
 		this.num_compte=num_compte;
 	}
-	public Double getSolde() {
+	public double getSolde() {
 		return solde;
 	}
-	public void setSolde(Double solde) {
+	public void setSolde(double solde) {
 		this.solde=solde;
 	}
 	public Boolean getActive() {
