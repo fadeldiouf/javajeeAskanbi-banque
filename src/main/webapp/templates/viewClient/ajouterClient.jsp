@@ -62,6 +62,7 @@
                   </div>
                   <div class="bs-stepper-content">
                     <!-- your steps content here -->
+                    <form action="a.jsp">
                     <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
                     <div class="row">
           <div class="col-md-6">
@@ -200,6 +201,7 @@
               <!-- /.card-body -->
                 <button class="btn btn-primary" onclick="stepper.next()">Suivant</button>
         </div>
+        
                   <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
                   <div class="col-md-6">
 
@@ -267,6 +269,7 @@
             <!-- /.card -->
           </div>
         </div>
+        </form>
         <!-- /.row -->
             <!-- /.card -->
           </div>
