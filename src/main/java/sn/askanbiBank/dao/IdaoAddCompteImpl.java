@@ -146,7 +146,6 @@ public class IdaoAddCompteImpl implements IdaoAddCompte {
 			t.setType_compte(rs.getString("type_compte"));
 			t.setActive(rs.getBoolean("active"));
 			u.setIduser(rs.getLong("iduser"));
-			u.setIdrole(rs.getLong("idrole"));
 			u.setUsername(rs.getString("username"));
 			u.setPassword(rs.getString("password"));
 			listCompte.add(c);

@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="a1024d69-9416-407e-90af-023bcc5ad6e2" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/dao/Idao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/dao/IdaoClient.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/dao/IdaoClientImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/sn/askanbiBank/dao/IdaoClientImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/dao/IdaoCompte.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/dao/IdaoCompteImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/sn/askanbiBank/dao/IdaoCompteImpl.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/dao/IdaoUser.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/domaine/Client.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/domaine/Compte.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/domaine/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/model/ClientModel.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/utilis/Connexion.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/utilis/MysqlConn.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/utilis/SingletonConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/sn/askanbiBank/utilis/SingletonConnection.class" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Tomcat 9.0.48" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.48" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment />
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="6e7053b1-20a1-476f-8337-52baf3077f41" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="4925" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Profile">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+</project>
