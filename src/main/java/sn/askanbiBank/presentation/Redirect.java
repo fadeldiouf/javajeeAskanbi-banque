@@ -33,6 +33,7 @@ public class Redirect extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		doPost(request, response);
 		
 	}
 
@@ -41,17 +42,18 @@ public class Redirect extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		Object disp = null;
-		IdaoUserImpl bd =new IdaoUserImpl();
+		IdaoUserImpl user =new IdaoUserImpl();
 		HttpSession session =request.getSession();
-		HttpSession session1 = request.getSession();
 		
 		
-			String login=request.getParameter("username");
-			String pass=request.getParameter("password"); 
-			String verify=bd.authentification(login, pass);
-			if (verify.equals("superadmin") || verify.equals("admin") || verify.equals("user")) {
+			String username=request.getParameter("username");
+			String password=request.getParameter("password");
+			
+			User verify=user.authentification(username, password);
+			if (verify.getRole().equals("superadmin") || verify.getRole().equals("admin") || verify.getRole().equals("user")) {
 				session.setAttribute("verify",verify);
+				
+				
 				
 			request.getRequestDispatcher("accueil.jsp").forward(request, response);
 			}

@@ -14,6 +14,7 @@ public class Test {
 //		IdaoUser lister= new IdaoUserImpl();
 //		IdaoAddCompte metier= new IdaoAddCompteImpl();
 		IdaoCompte metier = new IdaoCompteImpl();
+		IdaoUser user = new IdaoUserImpl();
 //	metier.addClient(new Client("diouf", "mbaye", "colobane", "12-05-1990", "776777777", "faloud.com", "celibataire",
 //			"masculin","1642"), new Compte( 50000d, "courant"), new User("fadji@fadel", "passer"));
 ////	
@@ -39,6 +40,17 @@ public class Test {
     	System.out.println(c.getActive());
     	System.out.println(c.getUser().getUsername());
     	System.out.println(c.getUser().getIduser());
+    	
+    	System.out.println("=======================");
+        User u = user.authentification("fadel@diouf", "passer");
+        System.out.println(u.getUsername());
+    	System.out.println(u.getPassword());
+    	System.out.println(u.getRole().getRole());
+    	System.out.println(u.getAgent().getAgence().getIdagence());
+    	System.out.println(u.getAgent().getAgence().getNomagence());
+    	System.out.println(u.getAgent().getIdagent());
+    	System.out.println(u.getAgent().getNom());
+    	System.out.println(u.getAgent().getPrenom());
 	}
 	}
 //        System.out.println("=======================");
