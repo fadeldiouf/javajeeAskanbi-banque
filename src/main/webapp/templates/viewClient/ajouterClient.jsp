@@ -32,177 +32,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Sign Up Form</title>
 
-<<<<<<< HEAD
-              <div class="card-body p-0">
-                <div class="bs-stepper">
-                  <div class="bs-stepper-header" role="tablist">
-                    <!-- your steps here -->
-                    <div class="step" data-target="#logins-part">
-                      <button type="button" class="step-trigger" role="tab" aria-controls="logins-part" id="logins-part-trigger">
-                        <span class="bs-stepper-circle">1</span>
-                        <span class="bs-stepper-label">Information Du client</span>
-                      </button>
-                    </div>
-                    <div class="line"></div>
-                    <div class="step" data-target="#information-part">
-                      <button type="button" class="step-trigger" role="tab" aria-controls="information-part" id="information-part-trigger">
-                        <span class="bs-stepper-circle">2</span>
-                        <span class="bs-stepper-label">Information Du coomte</span>
-                      </button>
-                    </div>
-                  </div>
-                  <div class="bs-stepper-content">
-                    <!-- your steps content here -->
-                    <form action="a.jsp">
-                    <div id="logins-part" class="content" role="tabpanel" aria-labelledby="logins-part-trigger">
-                    <div class="row">
-          <div class="col-md-6">
-
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Info client</h3>
-              </div>
-              <div class="card-body">
-                <!-- /.form group -->
-                <div class="form-group">
-                <label for="exampleInputEmail1">Nom</label>
-                <div class="input-group mb-3">
-		          <input type="text" class="form-control" placeholder=" nom">
-		          <div class="input-group-append">
-		            <div class="input-group-text">
-		              <span class="fas fa-user"></span>
-		            </div>
-		          </div>
-		        </div>
-                </div>
-                  <!-- /.form group -->
-                  <div class="form-group">
-                <label for="exampleInputEmail1">Prenom</label>
-                <div class="input-group mb-3">
-		          <input type="text" class="form-control" placeholder="prenom">
-		          <div class="input-group-append">
-		            <div class="input-group-text">
-		              <span class="fas fa-user"></span>
-		            </div>
-		          </div>
-		        </div>
-                </div>
-                <!-- /.form group -->
-                <div class="form-group">
-                <label for="exampleInputEmail1">Adresse</label>
-                <div class="input-group mb-3">
-                  <input type="text" class="form-control" placeholder="Adresse">
-                  <div class="input-group-append">
-                    <span class="input-group-text"><i class="fas fa-check"></i></span>
-                  </div>
-                </div>
-                </div>
-                <!-- Date mm/dd/yyyy -->
-                <div class="form-group">
-                  <label>Date de Naissance:</label>
-                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
-                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate"/>
-                        <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
-                            <div class="input-group-text"><i class="fa fa-calendar"></i></div>
-                        </div>
-                    </div>
-                </div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-
-          </div>
-          <!-- /.col (left) -->
-          <div class="col-md-6">
-            <div class="card card-primary">
-              <div class="card-header">
-                <h3 class="card-title">Info client</h3>
-              </div>
-              <div class="card-body">
-                <!-- /.form group -->
-                <div class="form-group">
-                  <label>Telephone:</label>
-                  <div class="input-group">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text"><i class="fas fa-phone"></i></span>
-                    </div>
-                    <input type="text" class="form-control"
-                           data-inputmask="'mask': ['99-999-99-99 [x99999]', '+099 99 99 9999[9]-9999']" data-mask>
-                  </div>
-                  <!-- /.input group -->
-                  <!-- /.form group -->
-                </div>
-                <div class="form-group">
-                  <label>Email:</label>
-                <div class="input-group mb-3">
-                  <div class="input-group-prepend">
-                    <span class="input-group-text"><i class="fas fa-envelope"></i></span>
-                  </div>
-                  <input type="email" class="form-control" placeholder="Email">
-                </div>
-                </div>
-                <!-- /.form group -->
-                <div class="row">
-                    <div class="col-sm-6">
-                      <!-- select -->
-                      <div class="form-group">
-                        <label>Civilite</label>
-                        <select class="custom-select">
-                          <option>Marié</option>
-                          <option>Celibataire</option>
-
-                        </select>
-                      </div>
-                    </div>
-                    <div class="col-sm-6">
-                    <label for="radioPrimary3">
-                          Genre
-                        </label>
-                    <div class="form-group clearfix">
-                      <div class="icheck-primary d-inline">
-                        <input type="radio" id="radioPrimary1" name="r1" checked>
-                        <label for="radioPrimary1">
-                          M
-                        </label>
-                      </div>
-                      <div class="icheck-primary d-inline">
-                        <input type="radio" id="radioPrimary2" name="r1">
-                        <label for="radioPrimary2">
-                          F
-                        </label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- /.form group -->
-                <div class="form-group">
-                  <label>CNI</label>
-                <div class="input-group">
-                  <input type="text" class="form-control">
-                  <div class="input-group-append">
-                    <span class="input-group-text">123</span>
-                  </div>
-                </div>
-                <!-- /.form group -->
-              </div>
-              </div>
-            </div>
-          </div>
-        </div>
-              <!-- /.card-body -->
-                <button class="btn btn-primary" onclick="stepper.next()">Suivant</button>
-        </div>
-        
-                  <div id="information-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
-                  <div class="col-md-6">
-=======
-    <!-- Font Icon -->
-    <link rel="stylesheet" href="fonts/material-icon/css/material-design-iconic-font.min.css">
-
-    <!-- Main css -->
-    <link rel="stylesheet" href="../css/style.css">
-</head>
->>>>>>> 69f8add7c3193fa417b08e174bdb54fe44d95977
 
 <body>
     <div class="content-wrapper md-2">
@@ -259,8 +88,7 @@
 							                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
 							                    </div>
 							                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" placeholder=" Date de naissance" name="datenaissance" />
-							                         
-							                        
+							                      
 							                    </div>
 							                </div>
 							                <div class="form-group">
@@ -331,7 +159,7 @@
 				    <!-- /.form group -->
 
 				               <div class="form-group">
-							       <select class="custom-select" name="genre">
+							       <select class="custom-select" name="Type_compte">
 							         <option value="courant" selected>Courant</option>
 							           <option value="epargne">Epargne</option>
 			
@@ -375,36 +203,6 @@
 </section>
 </div>
 </div>
-<<<<<<< HEAD
-                  </div>
-                      <button class="btn btn-primary" onclick="stepper.previous()">Precedant</button>
-                      <button type="submit" class="btn btn-primary">Submit</button>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-        </div>
-        </form>
-        <!-- /.row -->
-            <!-- /.card -->
-          </div>
-        </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-  <footer class="main-footer">
-    <strong>Copyright &copy; ASKANBIBANK
-  </footer>
-=======
->>>>>>> 69f8add7c3193fa417b08e174bdb54fe44d95977
 
 <!-- Bootstrap 4 -->
 <script src="../plugins/jquery/jquery.min.js"></script>

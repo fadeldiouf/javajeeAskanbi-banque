@@ -5,6 +5,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
 import java.util.List;
 
 import sn.askanbiBank.domaine.Client;
@@ -54,13 +55,13 @@ public class IdaoAddCompteImpl implements IdaoAddCompte {
 	}
 
 	@Override
-	public void delete(Long id) {
+	public void delete(int id) {
 		// TODO Auto-generated method stub
 		
 	}
 
 	@Override
-	public Client getByID(Long id) {
+	public Client getByID(int id) {
 		// TODO Auto-generated method stub
 		return null;
 	}
@@ -115,6 +116,49 @@ public class IdaoAddCompteImpl implements IdaoAddCompte {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
+	}
+
+	@Override
+	public List<Object> listCompte() {
+		List<Object> listCompte = new ArrayList<>();
+		String sql="SELECT * from client l,compte c,user u where l.idclient=c.idclient and l.idclient=u.idclient";
+		try {
+			pst=con.prepareStatement(sql);
+			rs=pst.executeQuery();
+			while(rs.next()) {
+			Client c = new Client();
+			Compte t= new Compte();
+			User u = new User();
+			c.setIdclient(rs.getInt("idclient"));
+			c.setNom(rs.getString("nom"));
+			c.setPrenom(rs.getString("prenom"));
+			c.setAdresse(rs.getString("adresse"));
+			c.setDatenaissance(rs.getString("datenaissance"));
+			c.setTelephone(rs.getString("telephone"));
+			c.setEmail(rs.getString("email"));
+			c.setCivilite(rs.getString("civilite"));
+			c.setGenre(rs.getString("genre"));
+			c.setCni(rs.getString("cni"));
+			t.setIdcompte(rs.getInt("idcompte"));
+			t.setNum_compte(rs.getLong("num_compte"));
+			t.setSolde(rs.getLong("solde"));
+			t.setDatecreation(rs.getDate("datenaissance"));
+			t.setType_compte(rs.getString("type_compte"));
+			t.setActive(rs.getBoolean("active"));
+			u.setIduser(rs.getLong("iduser"));
+			u.setIdrole(rs.getLong("idrole"));
+			u.setUsername(rs.getString("username"));
+			u.setPassword(rs.getString("password"));
+			listCompte.add(c);
+			listCompte.add(t);
+			listCompte.add(u);
+			}
+			pst.close(); 
+		} catch (Exception e) {
+			
+		}
+		return listCompte;
+	
 	}
 
 }

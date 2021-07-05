@@ -27,7 +27,7 @@
       <p class="login-box-msg">Espace</p>
 
      <!-- <form action="<%= request.getContextPath() %>/authentificationservelet" method="post">-->
-      <form action="Redirect" method="post">
+      <form action="<%= request.getContextPath() %>/templates/"  method="post">
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="username" placeholder="login">
           <div class="input-group-append">

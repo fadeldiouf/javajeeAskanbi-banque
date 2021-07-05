@@ -11,15 +11,24 @@ public class ClientModel {
 	private Client client = new Client();
 	private User user = new User();
 	private Compte compte = new Compte();
-	private List<Client> clients = new ArrayList<Client>();
+//	private List<Client> clients = new ArrayList<Client>();
+	private List<Compte> comptes = new ArrayList<Compte>();
 
-	public List<Client> getClients() {
-		return clients;
+	public List<Compte> getComptes() {
+		return comptes;
 	}
 
-	public void setClients(List<Client> clients) {
-		this.clients = clients;
+	public void setComptes(List<Compte> comptes) {
+		this.comptes = comptes;
 	}
+
+//	public List<Client> getClients() {
+//		return clients;
+//	}
+//
+//	public void setClients(List<Client> clients) {
+//		this.clients = clients;
+//	}
 
 	public Client getClient() {
 		return client;

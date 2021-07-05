@@ -8,9 +8,10 @@ public class User  implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private Long iduser;
-	private Long idrole;
-	private Client client;
-	private String username;
+	private Role role = new Role();
+	private Client client = new Client();
+	private Agent agent= new Agent();
+	private String username ;
 	private String password;
 	
 	public User() {
@@ -21,7 +22,6 @@ public class User  implements Serializable{
 	public User(Long iduser, Long idrole, Client client, String username, String password) {
 		super();
 		this.iduser = iduser;
-		this.idrole = idrole;
 		this.client = client;
 		this.username = username;
 		this.password = password;
@@ -36,18 +36,28 @@ public class User  implements Serializable{
 	public Long getIduser() {
 		return iduser;
 	}
+	
+
+	public Role getRole() {
+		return role;
+	}
+
+	public void setRole(Role role) {
+		this.role = role;
+	}
+
+	public Agent getAgent() {
+		return agent;
+	}
+
+	public void setAgent(Agent agent) {
+		this.agent = agent;
+	}
 
 	public void setIduser(Long iduser) {
 		this.iduser = iduser;
 	}
 
-	public Long getIdrole() {
-		return idrole;
-	}
-
-	public void setIdrole(Long idrole) {
-		this.idrole = idrole;
-	}
 
 	public Client getClient() {
 		return client;

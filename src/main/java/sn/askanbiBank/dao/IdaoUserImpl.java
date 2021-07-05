@@ -31,17 +31,12 @@ public class IdaoUserImpl  implements IdaoUser {
     	   //String userNameDB = "";
            //String passwordDB = "";
      
-     public String authentification(String username, String password) {
+     public ArrayList<Object> authentification(String username, String password) {
     	  // String sql= " SELECT * from user where  username = ? AND password = ?";
     	   
     	   
-   String sql= "SELECT g.idagence as id_agence, g.nomagence as agence,a.nom,a.prenom,u.idagent as ID,username,password,role FROM agence g, agent a,user u, role r WHERE g.idagence = a.idagence ANd a.idagent = u.idagent AND u.idrole = r.idrole AND username = ? AND password = ?";
-    	    //	   		+ "username,password,role" +
-    	    		//	   "FROM agence g, agent a,user u, role r WHERE g.idagence = a.idagence ANd a.idagent = u.idagent AND u.idrole = r.idrole"+
-    	    		//	    "AND username = ? AND password = ?";
-    	 
-    	   String userNameDB = "";
-           String passwordDB = "";
+   String sql= "SELECT g.idagence as id_agence, g.nomagence as agence,a.nom,a.prenom,u.idagent as ID,username,password,role FROM agence g, agent a,user u, role r WHERE g.idagence = a.idagence ANd a.idagent = u.idagent AND u.idrole = r.idrole AND username = ? AND password = ?";   	
+   ArrayList<Object> liste1=new ArrayList<>();
          PreparedStatement pst;
 		try {
 			pst = con.prepareStatement(sql);
@@ -53,52 +48,37 @@ public class IdaoUserImpl  implements IdaoUser {
 	         
 	         //if rs.next()
 	         while (rs.next()) {
-	        	 
-
-	              userNameDB = rs.getString("username"); //fetch the values present in database
-	              passwordDB = rs.getString("password");
+	        	 String userName = rs.getString("username"); //fetch the values present in database
+	        	 String passWord = rs.getString("password");
+	              String role= rs.getString("role");
+	              String nomagence=rs.getString("nomagence");
+	              int idagence= rs.getInt("id_agence");
+	              int idagent= rs.getInt("ID");
+	              String nom= rs.getNString("nom");
+	              String prenom=rs.getString("prenom");
+	              liste1.add(userName);
+	              liste1.add(passWord);
+	              liste1.add(role);
+	              liste1.add(nomagence);
+	              liste1.add(idagence);
+	              liste1.add(idagent);
+	              liste1.add(nom);
+	              liste1.add(prenom);
 	              
-	              if(username.equals(userNameDB) && password.equals(passwordDB))
-	               {
-	                  return "SUCCESS"; ////If the user entered values are already present in the database, which means user has already registered so return a SUCCESS message.
-	               }
+					/*
+					 * if(username.equals(userNameDB) && password.equals(passwordDB)) { return
+					 * liste; }
+					 */
 	              
 	         }
-	        	 
-	        	 //User l=new User();
-	        	 
-	        	 
-	        	   // l.setIduser(rs.getLong("iduser"));
-					//l.setIdrole(rs.getLong("idrole"));
-					//l.setClient(rs.("Client"));
-					//l.setUsername(rs.getString("username"));
-					//l.setPassword(rs.getString("password"));
-					//l.setNiveau(rs.getInt("niveau"));
-					//liste.add(l);
-					//result found, means valid inputs
-	        	 //userNameDB = rs.getString("username"); //fetch the values present in database
-	             // passwordDB = rs.getString("password");
-	              
-	              //if(username.equals(userNameDB) && password.equals(passwordDB))
-	               //{
-	                 // return "SUCCESS"; ////If the user entered values are already present in the database, which means user has already registered so return a SUCCESS message.
-	               //}
-				
-	         
 	            }
 	              catch(SQLException e)
 	              {
 	                 e.printStackTrace();
 	              }
-	              return "codes d'accés incorrects"; // Return appropriate message in case of failure
+	              return liste1;// Return appropriate message in case of failure
 	          }
-	      
-     
-
- 
-
-     
-     
+	  
 
 	@Override
 	public void save(User t) {
@@ -113,15 +93,21 @@ public class IdaoUserImpl  implements IdaoUser {
 	}
 
 	@Override
-	public User update(User t) {
+	public void update(User t) {
 		// TODO Auto-generated method stub
-		return null;
 	}
 
 	@Override
-	public void delete(Long id) {
+	public void delete(int id) {
 		// TODO Auto-generated method stub
 		
+	}
+		
+
+	@Override
+	public User getByID(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 

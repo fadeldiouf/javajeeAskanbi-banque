@@ -8,8 +8,9 @@ public class  Compte implements Serializable{
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private  Long idcompte;
-	private Long idclient;
+	private  int idcompte;
+	private Client client = new Client();
+	private User user = new User();
 	private Long num_compte;
 	private double solde;
 	private Date datecreation;
@@ -20,11 +21,11 @@ public class  Compte implements Serializable{
 		super();
 		
 	}
-	public Compte(Long idcompte, Long idclient, Long num_compte, double solde, Date datecreation, Boolean active,
+	public Compte(int idcompte, Client client, Long num_compte, double solde, Date datecreation, Boolean active,
 			String type_compte) {
 		super();
 		this.idcompte = idcompte;
-		this.idclient = idclient;
+		this.client = client;
 		this.num_compte = num_compte;
 		this.solde = solde;
 		this.datecreation = datecreation;
@@ -37,11 +38,11 @@ public class  Compte implements Serializable{
 		this.type_compte=type_compte;
 		
 	}
-	public Long getIdcompte() {
+	public int getIdcompte() {
 		return idcompte;
 		
 	}
-	public void setIdcompte(Long idcompte) {
+	public void setIdcompte(int idcompte) {
 		this.idcompte=idcompte;
 		
 	}
@@ -81,13 +82,21 @@ public class  Compte implements Serializable{
 	public void setDatecreation(Date datecreation) {
 		this.datecreation = datecreation;
 	}
-	public Long getIdclient() {
-		return idclient;
+	
+	
+	public Client getClient() {
+		return client;
 	}
-	public void setIdclient(Long idclient) {
-		this.idclient = idclient;
+	public void setClient(Client client) {
+		this.client = client;
 	}
 	
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
 	public String getMatricule(int n) 
     {
         //choisissez un caractére au hasard à partir de cette chaîne

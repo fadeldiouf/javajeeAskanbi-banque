@@ -10,8 +10,8 @@ public class Client  implements Serializable{
 	private int idclient;
 	private String nom;
 	private String prenom;
-	private String adresse ;
-	private String datenaissance 	;
+	private String adresse;
+	private String datenaissance;
 	private String telephone;
 	private String email;
 	private String civilite;

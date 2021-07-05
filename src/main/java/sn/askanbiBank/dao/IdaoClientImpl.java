@@ -54,6 +54,7 @@ public class IdaoClientImpl implements IdaoClient{
 			rs=pst.executeQuery();
 			while(rs.next()) {
 			Client c = new Client();
+			c.setIdclient(rs.getInt("idclient"));
 			c.setNom(rs.getString("nom"));
 			c.setPrenom(rs.getString("prenom"));
 			c.setAdresse(rs.getString("adresse"));
@@ -62,7 +63,7 @@ public class IdaoClientImpl implements IdaoClient{
 			c.setEmail(rs.getString("email"));
 			c.setCivilite(rs.getString("civilite"));
 			c.setGenre(rs.getString("genre"));
-			c.setCni(rs.getString("cni"));
+			c.setCni(rs.getString("cni")); 
 			liste.add(c);
 			}
 			pst.close(); 
@@ -87,7 +88,7 @@ public class IdaoClientImpl implements IdaoClient{
 			pst.setString(7, t.getCivilite());
 			pst.setString(8, t.getGenre());
 			pst.setString(9, t.getCni());
-			pst.setLong(10, t.getIdclient());
+			pst.setInt(10, t.getIdclient());
 			pst.executeUpdate();
 			pst.close();
 		} catch (SQLException e) {
@@ -98,7 +99,7 @@ public class IdaoClientImpl implements IdaoClient{
 	}
 
 	@Override
-	public void delete(Long id) {
+	public void delete(int id) {
 		String sql="DELETE FROM client WHERE idclient=?";
 		try {
 			pst=con.prepareStatement(sql);
@@ -115,19 +116,15 @@ public class IdaoClientImpl implements IdaoClient{
 	}
 
 	@Override
-	public Client getByID(Long id) {
+	public Client getByID(int id) {
 		Client t =  null;
-		Compte c = null;
-		User u = null;
 		String sql= "SELECT * FROM client t,compte c,user u WHERE t.idclient=c.idclient AND t.idclient=u.idclient and t.idclient=? ";
 		try {
 			pst=con.prepareStatement(sql);
-			pst.setLong(1, id);
+			pst.setInt(1, id);
 			rs=pst.executeQuery();
 			if (rs.next()) {
-				 t =  new Client();
-				 c= new Compte();
-				 u= new User();
+				t =  new Client();
 				t.setIdclient(rs.getInt("idclient"));
 				t.setNom(rs.getString("nom"));
 				t.setPrenom(rs.getString("prenom"));
@@ -137,15 +134,7 @@ public class IdaoClientImpl implements IdaoClient{
 				t.setEmail(rs.getString("email"));
 				t.setCivilite(rs.getString("civilite"));
 				t.setGenre(rs.getString("genre"));
-				t.setCni(rs.getString("cni"));
-				c.setIdcompte(rs.getLong("idcompte"));
-				c.setNum_compte(rs.getLong("num_compte"));
-				c.setSolde(rs.getDouble("solde"));
-				c.setDatecreation(rs.getDate("datecreation"));
-				c.setActive(rs.getBoolean("active"));
-				c.setType_compte(rs.getString("type_compte"));
-				u.setUsername(rs.getString("username"));
-				u.setPassword(rs.getString("password"));
+				t.setCni(rs.getString("cni"));	
 						
 			}
 		} catch (SQLException e) {

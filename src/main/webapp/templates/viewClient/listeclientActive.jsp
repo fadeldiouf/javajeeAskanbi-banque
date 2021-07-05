@@ -70,19 +70,20 @@
                   </tr>
                   </thead>
                   <tbody>
-                  <c:forEach items="${model.clients}" var="c">
+                  <c:forEach items="${model.comptes}" var="c">
                   <tr>
-                    <th>${c.nom}</th>
-                    <th>${c.prenom}</th>
-                    <th>${c.adresse}</th>
-                    <th>${c.datenaissance}</th>
-                    <th>${c.telephone}</th>
-                    <th>${c.email}</th>
-                    <th>${c.cni}</th>
-                    <th>Status</th>
+                    <th>${c.client.nom}</th>
+                    <th>${c.client.prenom}</th>
+                    <th>${c.client.adresse}</th>
+                    <th>${c.client.datenaissance}</th>
+                    <th>${c.client.telephone}</th>
+                    <th>${c.client.email}</th>
+                    <th>${c.client.cni}</th>
+                    <th>${c.active}</th>
                     <th> 
-                     <a href="#" class="btn btn-info btn-sm"><i class="fa fa-eye"></i></a>
-                     <a href="<%= request.getContextPath() %>/templates/viewClient?action=editer&id=${c.idclient}" class="btn btn-primary btn-sm">  
+                     <a href="<%= request.getContextPath() %>/templates/viewClient?action=detail&id=${c.client.idclient}"class="btn btn-info btn-sm">
+                     <i class="fa fa-eye"></i></a>
+                     <a href="<%= request.getContextPath() %>/templates/viewClient?action=editer&id=${c.client.idclient}" class="btn btn-primary btn-sm">  
                      <i class="fas fa-edit" ></i></a>                  
                     </th>
                   </tr>
