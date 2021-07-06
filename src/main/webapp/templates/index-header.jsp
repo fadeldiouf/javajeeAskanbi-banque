@@ -1,4 +1,5 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="p"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -178,7 +179,8 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+        <% HttpSession sessio = request.getSession(); %>
+          <a href="#" class="d-block"><% sessio.getAttribute("nom"); %></a>
         </div>
       </div>
 
@@ -196,6 +198,7 @@
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
+      <p:if test="${sessionScope['verify']=='agent'}">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
@@ -261,6 +264,142 @@
           </li>
 
         </ul>
+        </p:if>
+       <p:if test="${sessionScope['verify']=='admin'}">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                OPERATIONS
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="verification.jsp" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p></p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="verification.jsp" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p></p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="verification.jsp" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p></p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                GESTION DES CLIENTS
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<%= request.getContextPath() %>/templates/viewClient" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>COMPTE ACTIVE</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="listeclientDesactive.jsp" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>COMPTE DESACTIVE</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="operation.jsp" class="nav-link">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>
+                TRANSACTIONS
+              </p>
+            </a>
+          </li>
+
+        </ul>
+        </p:if>
+        <p:if test="${sessionScope['verify']=='superadmin'}">
+        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+          <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                OPERATIONS
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="verification.jsp" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p></p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="verification.jsp" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p></p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="verification.jsp" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p></p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                GESTION DES CLIENTS
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<%= request.getContextPath() %>/templates/viewClient" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>COMPTE ACTIVE</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="listeclientDesactive.jsp" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>COMPTE DESACTIVE</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="operation.jsp" class="nav-link">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>
+                TRANSACTIONS
+              </p>
+            </a>
+          </li>
+
+        </ul>
+        </p:if>
+        
       </nav>
       <!-- /.sidebar-menu -->
     </div>
