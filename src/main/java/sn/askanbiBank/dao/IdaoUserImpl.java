@@ -20,64 +20,59 @@ public class IdaoUserImpl  implements IdaoUser {
      Statement stmt;
      ResultSet rs;
      
-    // public ArrayList<User> authentification(String username, String password) {
-    	
-    	// ArrayList <User> liste=new ArrayList<User>();
-    	  // String sql= " SELECT g.idagence as id_agence, g.nomagence as agence,a.nom,a.prenom,u.idagent as ID,"
-    	   	//	+ "username,password,role" +
-    			//    "FROM agence g, agent a,user u, role r WHERE g.idagence = a.idagence ANd a.idagent = u.idagent AND u.idrole = r.idrole"+
-    			//     "AND username = ? AND password = ?";
-    	   
-    	   //String userNameDB = "";
-           //String passwordDB = "";
      
-     public ArrayList<Object> authentification(String username, String password) {
-    	  // String sql= " SELECT * from user where  username = ? AND password = ?";
-    	   
-    	   
+     public  String verification (String username, String password) {	   
    String sql= "SELECT g.idagence as id_agence, g.nomagence as agence,a.nom,a.prenom,u.idagent as ID,username,password,role FROM agence g, agent a,user u, role r WHERE g.idagence = a.idagence ANd a.idagent = u.idagent AND u.idrole = r.idrole AND username = ? AND password = ?";   	
-   ArrayList<Object> liste1=new ArrayList<>();
          PreparedStatement pst;
 		try {
 			pst = con.prepareStatement(sql);
 			 pst.setString(1, username);
 	         pst.setString(2, password);
 	         ResultSet rs = pst.executeQuery();
-	         
-	         //HttpSession session= request.getSession();
-	         
-	         //if rs.next()
 	         while (rs.next()) {
 	        	 String userName = rs.getString("username"); //fetch the values present in database
 	        	 String passWord = rs.getString("password");
 	              String role= rs.getString("role");
-	              String nomagence=rs.getString("nomagence");
-	              int idagence= rs.getInt("id_agence");
-	              int idagent= rs.getInt("ID");
-	              String nom= rs.getNString("nom");
-	              String prenom=rs.getString("prenom");
-	              liste1.add(userName);
-	              liste1.add(passWord);
-	              liste1.add(role);
-	              liste1.add(nomagence);
-	              liste1.add(idagence);
-	              liste1.add(idagent);
-	              liste1.add(nom);
-	              liste1.add(prenom);
-	              
-					/*
-					 * if(username.equals(userNameDB) && password.equals(passwordDB)) { return
-					 * liste; }
-					 */
-	              
+					  if(username.equals(userName) && password.equals(passWord))
+					  { return
+					  role; }
 	         }
 	            }
 	              catch(SQLException e)
 	              {
 	                 e.printStackTrace();
 	              }
-	              return liste1;// Return appropriate message in case of failure
+	              return null;// Return appropriate message in case of failure
 	          }
+     @Override
+ 	public User authentification(String username, String password) {
+ 		// TODO Auto-generated method stub
+    	  User u= null;
+    	   String sql= "SELECT g.idagence as id_agence, g.nomagence as agence,a.nom,a.prenom,u.idagent as ID,username,password,role FROM agence g, agent a,user u, role r WHERE g.idagence = a.idagence ANd a.idagent = u.idagent AND u.idrole = r.idrole AND username = ? AND password = ?";   	
+    	     try {
+				pst = con.prepareStatement(sql);
+				 pst.setString(1, username);
+		         pst.setString(2, password);
+		         ResultSet rs = pst.executeQuery();
+		         while (rs.next()){
+		        	 u = new User();
+		        	u.setUsername(rs.getString("username"));
+		        	u.setPassword(rs.getString("password"));
+		        	u.getRole().setRole(rs.getString("role"));
+		        	u.getAgent().getAgence().setIdagence(rs.getInt("id_agence"));
+		        	u.getAgent().setIdagent(rs.getInt("ID"));
+		        	u.getAgent().getAgence().setNomagence(rs.getString("agence"));
+		        	u.getAgent().setNom(rs.getString("nom"));
+		        	u.getAgent().setPrenom(rs.getString("prenom"));
+		        	 	 
+		         }
+			} catch (SQLException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			 
+ 		return u;
+ 	}
 	  
 
 	@Override
@@ -109,6 +104,9 @@ public class IdaoUserImpl  implements IdaoUser {
 		// TODO Auto-generated method stub
 		return null;
 	}
+
+
+	
 	
 
 }

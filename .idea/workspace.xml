@@ -2,19 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="a1024d69-9416-407e-90af-023bcc5ad6e2" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/dao/Idao.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/dao/IdaoClient.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/dao/IdaoClientImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/sn/askanbiBank/dao/IdaoClientImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/dao/IdaoCompte.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/dao/IdaoCompteImpl.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/sn/askanbiBank/dao/IdaoCompteImpl.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/dao/IdaoUser.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/domaine/Client.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/domaine/Compte.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/domaine/User.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/model/ClientModel.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/utilis/Connexion.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/utilis/MysqlConn.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/sn/askanbiBank/utilis/SingletonConnection.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/sn/askanbiBank/utilis/SingletonConnection.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,6 +11,18 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1uu48CCOaJUfHddd9FpF8Ov2Rcx" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/IdeaProjects/asanbibanque" />
   </component>
   <component name="RunManager">
     <configuration name="Tomcat 9.0.48" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 9.0.48" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
@@ -104,8 +104,21 @@
       </method>
     </configuration>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="a1024d69-9416-407e-90af-023bcc5ad6e2" name="Default Changelist" comment="" />
+      <created>1625501985914</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1625501985914</updated>
+      <workItem from="1625501993814" duration="143000" />
+      <workItem from="1625502340847" duration="77000" />
+    </task>
     <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
