@@ -1,6 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ include file="index-header.jsp"%>
-<%@ include file="index-footer.jsp"%>
+<%@ include file="../index-header.jsp"%>
+<%@ include file="../index-footer.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 

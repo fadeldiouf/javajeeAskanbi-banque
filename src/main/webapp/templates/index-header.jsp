@@ -173,7 +173,9 @@
     <!-- Brand Logo -->
     <a href="homeAgent.jsp" class="brand-link">
       <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Espace Agent</span>
+      <span class="brand-text font-weight-light"><% HttpSession sessio = request.getSession(); %>
+         <%= sessio.getAttribute("agence") %>
+         </span>
     </a>
 
     <!-- Sidebar -->
@@ -184,8 +186,10 @@
           <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-        <% HttpSession sessio = request.getSession(); %>
-          <a href="#" class="d-block"><% sessio.getAttribute("nom"); %></a>
+        <a href="#" class="d-block">
+         <%= sessio.getAttribute("nom") %>
+         <%= sessio.getAttribute("prenom") %></a>
+        
         </div>
       </div>
 
@@ -203,7 +207,7 @@
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-      <p:if test="${sessionScope['verify']=='agent'}">
+      <p:if test="${sessionScope['role']=='agent'}">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
@@ -225,13 +229,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="verification.jsp" class="nav-link">
+                <a href="viewClient/operation/Verification2.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>RETRAIT</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="verification.jsp" class="nav-link">
+                <a href="viewClient/operation/Verification3.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>VIREMENT</p>
                 </a>
@@ -283,10 +287,11 @@
 
         </ul>
         </p:if>
-       <p:if test="${sessionScope['verify']=='admin'}">
+       <p:if test="${sessionScope['role']=='admin'}">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
+
                 <li class="nav-item">
                     <a href="pages/examples/register-v2.html" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
@@ -317,6 +322,72 @@
                
          
         <p:if test="${sessionScope['verify']=='superadmin'}">
+=======
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link active">
+              <i class="nav-icon fas fa-tachometer-alt"></i>
+              <p>
+                OPERATIONS
+                <i class="right fas fa-angle-left"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="verification.jsp" class="nav-link active">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p></p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="verification.jsp" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p></p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="verification.jsp" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p></p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                GESTION DES CLIENTS
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<%= request.getContextPath() %>/templates/viewClient" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>COMPTE ACTIVE</p>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="listeclientDesactive.jsp" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>COMPTE DESACTIVE</p>
+                </a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a href="operation.jsp" class="nav-link">
+              <i class="nav-icon fas fa-columns"></i>
+              <p>
+                TRANSACTIONS
+              </p>
+            </a>
+          </li>
+
+        </ul>
+        </p:if>
+        <p:if test="${sessionScope['role']=='superadmin'}">
+>>>>>>> ac36677ec16f3b25786137263826ae7f5bf89a0c
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->

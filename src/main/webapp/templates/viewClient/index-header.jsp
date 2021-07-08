@@ -215,13 +215,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="verification.jsp" class="nav-link">
+                <a href="verification1.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>RETRAIT</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="verification.jsp" class="nav-link">
+                <a href="verification2.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>VIREMENT</p>
                 </a>
