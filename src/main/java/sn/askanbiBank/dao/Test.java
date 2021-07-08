@@ -33,18 +33,18 @@ public class Test {
         	
 
         }
-        System.out.println("=======================");
-        Compte c = metier.getByID(86);
-        System.out.println(c.getClient().getNom());
-    	System.out.println( c.getClient().getPrenom());
-    	System.out.println(c.getSolde());
-    	System.out.println(c.getType_compte());
-    	System.out.println(c.getActive());
-    	System.out.println(c.getUser().getUsername());
-    	System.out.println(c.getUser().getIduser());
+//        System.out.println("=======================");
+//        Compte c = metier.getByID(86);
+//        System.out.println(c.getClient().getNom());
+//    	System.out.println( c.getClient().getPrenom());
+//    	System.out.println(c.getSolde());
+//    	System.out.println(c.getType_compte());
+//    	System.out.println(c.getActive());
+//    	System.out.println(c.getUser().getUsername());
+//    	System.out.println(c.getUser().getIduser());
     	
 //    	System.out.println("=======================");
-//        User u = user.authentification("fadel@diouf", "passer");
+//        User u = user.authentification("Maps@diongue", "passer");
 //        System.out.println(u.getUsername());
 //    	System.out.println(u.getPassword());
 //    	System.out.println(u.getRole().getRole());
@@ -53,9 +53,18 @@ public class Test {
 //    	System.out.println(u.getAgent().getIdagent());
 //    	System.out.println(u.getAgent().getNom());
 //    	System.out.println(u.getAgent().getPrenom());
+//    	System.out.println("=======================");
+//    	String a= user1.verification("fadel@diouf", "passer");
+//    	System.out.println();
+    	
     	System.out.println("=======================");
-    	String a= user1.verification("fadel@diouf", "passer");
-    	System.out.println();
+        Compte c = metier.verification(5620638247l);
+    	System.out.println(c.getClient().getNom());
+    	System.out.println(c.getClient().getPrenom());
+    	System.out.println(c.getSolde());
+    	System.out.println(c.getNum_compte());
+    	System.out.println(c.getIdcompte());
+    	
     	
 	}
 	}

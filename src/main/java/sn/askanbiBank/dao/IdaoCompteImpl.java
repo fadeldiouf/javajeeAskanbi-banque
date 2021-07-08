@@ -121,4 +121,51 @@ public class IdaoCompteImpl  implements IdaoCompte{
 		return c;
 	}
 
+	@Override
+	public Compte verification(Long num_compte) {
+		Compte cpt=null;
+		String sql="SELECT nom,prenom, idcompte,num_compte,solde FROM client c, compte o WHERE c.idclient=o.idclient  AND num_compte=?";
+		try {
+			pst=con.prepareStatement(sql);
+			pst.setLong(1, num_compte);
+			rs= pst.executeQuery();
+			while(rs.next()) {
+				cpt= new Compte();
+				cpt.setNum_compte(rs.getLong("num_compte"));
+				cpt.getClient().setNom(rs.getString("nom"));
+				cpt.getClient().setPrenom(rs.getString("prenom"));
+				cpt.setSolde(rs.getDouble("solde"));
+				cpt.setIdcompte(rs.getInt("idcompte"));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return cpt;
+	}
+
+	@Override
+	public Compte verification2(Long num_compte) {
+		// TODO Auto-generated method stub
+		Compte cpt=null;
+		String sql="SELECT nom,prenom, idcompte,num_compte,solde FROM client c, compte o WHERE c.idclient=o.idclient  AND num_compte=?";
+		try {
+			pst=con.prepareStatement(sql);
+			pst.setLong(1, num_compte);
+			rs= pst.executeQuery();
+			while(rs.next()) {
+				cpt= new Compte();
+				cpt.setNum_compte(rs.getLong("num_compte"));
+				cpt.getClient().setNom(rs.getString("nom"));
+				cpt.getClient().setPrenom(rs.getString("prenom"));
+				cpt.setSolde(rs.getDouble("solde"));
+				cpt.setIdcompte(rs.getInt("idcompte"));
+			}
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
+		return cpt;
+	}
+
 }

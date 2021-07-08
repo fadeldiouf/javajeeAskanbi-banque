@@ -11,6 +11,7 @@ public class  Compte implements Serializable{
 	private  int idcompte;
 	private Client client = new Client();
 	private User user = new User();
+	private Agent agent = new Agent();
 	private Long num_compte;
 	private double solde;
 	private Date datecreation;
@@ -96,6 +97,13 @@ public class  Compte implements Serializable{
 	}
 	public void setUser(User user) {
 		this.user = user;
+	}
+	
+	public Agent getAgent() {
+		return agent;
+	}
+	public void setAgent(Agent agent) {
+		this.agent = agent;
 	}
 	public String getMatricule(int n) 
     {
