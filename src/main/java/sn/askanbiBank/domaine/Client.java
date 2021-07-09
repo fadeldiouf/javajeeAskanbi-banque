@@ -8,6 +8,7 @@ public class Client  implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	private int idclient;
+	private Agent agent;
 	private String nom;
 	private String prenom;
 	private String adresse;
@@ -21,6 +22,22 @@ public class Client  implements Serializable{
 	public Client () {
 		super();
 	}
+	
+
+	public Client(int idagent, String nom, String prenom, String adresse, String datenaissance, String telephone,
+			String email, String civilite, String genre, String cni) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.datenaissance = datenaissance;
+		this.telephone = telephone;
+		this.email = email;
+		this.civilite = civilite;
+		this.genre = genre;
+		this.cni = cni;
+	}
+
 
 	public Client(String nom, String prenom, String adresse, String datenaissance, String telephone,
 			String email, String civilite, String genre, String cni) {
@@ -115,7 +132,15 @@ public class Client  implements Serializable{
 	public void setCni(String cni) {
 		this.cni = cni;
 	}
+
+
+	public Agent getAgent() {
+		return agent;
+	}
+
+	public void setAgent(Agent agent) {
+		this.agent = agent;
+	}
 	
-		
 
 }

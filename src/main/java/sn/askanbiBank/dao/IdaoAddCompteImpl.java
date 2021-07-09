@@ -56,21 +56,22 @@ public class IdaoAddCompteImpl implements IdaoAddCompte {
 	public void addClient(Client t, Compte c,User u) {
 		// TODO Auto-generated method stub
 		
-		String sql1= "INSERT INTO client(nom,prenom,adresse,datenaissance,telephone,email,civilite,genre,cni) VALUES (?,?,?,?,?,?,?,?,?)" ;
+		String sql1= "INSERT INTO client(idagent,nom,prenom,adresse,datenaissance,telephone,email,civilite,genre,cni) VALUES (?,?,?,?,?,?,?,?,?,?)" ;
 		String sql2="INSERT INTO compte (idclient,num_compte,solde,datecreation,type_compte) VALUES (?,?,?,?,?)";
 		String sql3="INSERT INTO user (idrole,idclient,username,password) VALUES (?,?,?,?)";
 	      try {
 	    	  con.setAutoCommit(false);
 	     pst = con.prepareStatement(sql1,Statement.RETURN_GENERATED_KEYS);
-	     pst.setString(1, t.getNom());
-	     pst.setString(2,t.getPrenom());
-	     pst.setString(3,t.getAdresse());
-	     pst.setString(4, t.getDatenaissance());
-	     pst.setString(5, t.getTelephone());
-	     pst.setString(6, t.getEmail());
-	     pst.setString(7, t.getCivilite());
-	     pst.setString(8, t.getGenre());
-	     pst.setString(9, t.getCni());
+	     pst.setInt(1, t.getAgent().getIdagent());
+	     pst.setString(2, t.getNom());
+	     pst.setString(3,t.getPrenom());
+	     pst.setString(4,t.getAdresse());
+	     pst.setString(5, t.getDatenaissance());
+	     pst.setString(6, t.getTelephone());
+	     pst.setString(7, t.getEmail());
+	     pst.setString(8, t.getCivilite());
+	     pst.setString(9, t.getGenre());
+	     pst.setString(10, t.getCni());
 	     Long idReturn=(long) pst.executeUpdate();
 	     rs=pst.getGeneratedKeys();
 	     Long idClient=0L;
@@ -105,11 +106,13 @@ public class IdaoAddCompteImpl implements IdaoAddCompte {
 	}
 
 	@Override
-	public List<Object> listCompte() {
+	public List<Object> listCompte(int idagence) {
 		List<Object> listCompte = new ArrayList<>();
-		String sql="SELECT * from client l,compte c,user u where l.idclient=c.idclient and l.idclient=u.idclient";
+		String sql="SELECT * from client l,compte c,user u where l.idclient=c.idclient and l.idclient=u.idclient and\r\n"
+				+ "     l.idagent IN (SELECT idagent FROM agent WHERE idagence=)";
 		try {
 			pst=con.prepareStatement(sql);
+			pst.setInt(1, idagence);
 			rs=pst.executeQuery();
 			while(rs.next()) {
 			Client c = new Client();

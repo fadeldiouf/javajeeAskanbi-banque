@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import sn.askanbiBank.dao.IdaoAddCompte;
 import sn.askanbiBank.dao.IdaoAddCompteImpl;
@@ -15,8 +16,10 @@ import sn.askanbiBank.dao.IdaoClient;
 import sn.askanbiBank.dao.IdaoClientImpl;
 import sn.askanbiBank.dao.IdaoCompte;
 import sn.askanbiBank.dao.IdaoCompteImpl;
+import sn.askanbiBank.domaine.Agent;
 import sn.askanbiBank.domaine.Client;
 import sn.askanbiBank.domaine.Compte;
+import sn.askanbiBank.domaine.User;
 import sn.askanbiBank.model.ClientModel;
 
 /**
@@ -51,7 +54,9 @@ public class ControlerClient extends HttpServlet {
 		// TODO Auto-generated method stub
 		String action=request.getParameter("action");
 		ClientModel model = new ClientModel();
-		List<Compte> comptes= listerclient.liste();
+		HttpSession session1 = request.getSession();
+		int idagence =Integer.parseInt(session1.getAttribute("id_agence").toString());
+		List<Compte> comptes= listerclient.listeparagence(idagence);
 		model.setComptes(comptes);
 		request.setAttribute("model",model);
 		if (action!=null) {
@@ -64,20 +69,28 @@ public class ControlerClient extends HttpServlet {
 			}
 			
 			else if (action.equals("ajouter")) {
-					model.getClient().setNom(request.getParameter("nom"));
-					model.getClient().setPrenom(request.getParameter("prenom"));
-					model.getClient().setAdresse(request.getParameter("adresse"));
-					model.getClient().setDatenaissance(request.getParameter("datenaissance"));
-					model.getClient().setTelephone(request.getParameter("telephone"));
-					model.getClient().setEmail(request.getParameter("email"));
-					model.getClient().setCivilite(request.getParameter("civilite"));
-					model.getClient().setGenre(request.getParameter("genre"));
-					model.getClient().setCni(request.getParameter("cni"));
-					model.getCompte().setSolde(Double.parseDouble(request.getParameter("solde")));
-					model.getCompte().setType_compte(request.getParameter("type_compte"));
-					model.getUser().setUsername(request.getParameter("username"));
-					model.getUser().setPassword(request.getParameter("password"));
-					dao.addClient(model.getClient(), model.getCompte(), model.getUser()); 
+				HttpSession session = request.getSession();
+				Client client = new Client();
+				Compte compte = new Compte();
+				User user = new User();
+				Agent agent = new Agent();
+				System.out.println(session.getAttribute("ID"));
+				agent.setIdagent(Integer.parseInt(session.getAttribute("ID").toString()));
+				client.setAgent(agent);
+				client.setNom(request.getParameter("nom"));
+				client.setPrenom(request.getParameter("prenom"));
+				client.setAdresse(request.getParameter("adresse"));
+				client.setDatenaissance(request.getParameter("datenaissance"));
+				client.setTelephone(request.getParameter("telephone"));
+				client.setEmail(request.getParameter("email"));
+				client.setCivilite(request.getParameter("civilite"));
+				client.setGenre(request.getParameter("genre"));
+				client.setCni(request.getParameter("cni"));
+				compte.setSolde(Double.parseDouble(request.getParameter("solde")));
+				compte.setType_compte(request.getParameter("type_compte"));
+                user.setUsername(request.getParameter("username"));
+                user.setPassword(request.getParameter("password"));
+			    dao.addClient(client, compte, user);
 				request.getRequestDispatcher("listeclientActive.jsp").forward(request, response);
 					
 			}

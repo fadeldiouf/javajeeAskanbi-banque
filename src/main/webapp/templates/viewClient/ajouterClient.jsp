@@ -1,6 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ include file="../index-header.jsp"%>
-<%@ include file="../index-footer.jsp"%>
+<%@ include file="index-header.jsp"%>
+<%@ include file="index-footer.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -38,7 +38,7 @@
     <div class="main">
     <section class="content-header">
         <div class="container-fluide">
-            <form method="POST" action="<%= request.getContextPath() %>/templates/viewClient/" class="signup-form">
+            <form method="POST" action="<%= request.getContextPath() %>/templates/viewClient/" name="form" class="signup-form" onsubmit="return verficlient()";>
 	                    <div class="row md-2">
 		                    <div class="col-md-6">
 			                    <div class="card card-primary">
@@ -53,7 +53,7 @@
 							                    <div class="input-group-text">
 									                   <span class="fas fa-user"></span>
 									                </div>
-									             <input type="text" class="form-control" placeholder=" nom" name="nom">
+									             <input type="text" class="form-control" placeholder=" nom" name="nom" id="nom">
 									              <div class="input-group-append">
 									              </div>
 									             </div>
@@ -122,7 +122,7 @@
 							                      <!-- select -->
 							                      <div class="form-group">
 							                        <select class="custom-select" name="civilite">
-							                          <option value="marie" selected>Marie</option>
+							                          <option value="marie" >Marie</option>
 							                          <option value="celibataire">Celibataire</option>
 			
 							                        </select>
@@ -132,7 +132,7 @@
 							                      <!-- select -->
 							                      <div class="form-group">
 							                        <select class="custom-select" name="genre">
-							                          <option value="masculin" selected>Masculin</option>
+							                          <option value="masculin" >Masculin</option>
 							                          <option value="feminin">Feminine</option>
 			
 							                        </select>
@@ -159,8 +159,8 @@
 				    <!-- /.form group -->
 
 				               <div class="form-group">
-							       <select class="custom-select" name="Type_compte">
-							         <option value="courant" selected>Courant</option>
+							       <select class="custom-select" name="type_compte">
+							         <option value="courant" >Courant</option>
 							           <option value="epargne">Epargne</option>
 			
 							            </select>
@@ -174,7 +174,7 @@
 				              <span class="fas fa-envelope"></span>
 				            </div>
 				          </div>
-				          <input type="text" class="form-control "   placeholder="Usernane" name="username">
+				          <input type="text" class="form-control "   placeholder="Username" name="username">
 				          
 				        </div>
 				        </div>
@@ -187,7 +187,7 @@
 				              <span class="fas fa-lock"></span>
 				            </div>
 				          </div>
-				          <input type="password" class="form-control "   placeholder="Password" name="password">
+				          <input type="text" class="form-control "   placeholder="Password" name="password">
 				        </div>
 				        </div>
 				        </div>
@@ -368,9 +368,89 @@ stepper.next()
   }
   // DropzoneJS Demo Code End
 </script>
-
-/script>
-
+<script type="text/javascript">
+function verficlient()
+{
+	if (document.form.nom.value == "")	
+	{
+		alert("Veuillez saisir le nom")
+		document.form.nom.focus()
+		return false;
+	}
+	if (document.form.prenom.value == "")	
+	{
+		alert("Veuillez saisir le prenom")
+		document.form.prenom.focus()
+		return false;
+	}
+	if (document.form.adresse.value == "")	
+	{
+		alert("Veuillez saisir l'adresse ")
+		document.form.adresse.focus()
+		return false;
+	}
+	if (document.form.datenaissance.value == "")	
+	{
+		alert("Veuillez saisir la date ")
+		document.form.datenaissance.focus()
+		return false;
+	}
+	if (document.form.telephone.value == "")	
+	{
+		alert("Veuillez saisir le telephone ")
+		document.form.telephone.focus()
+		return false;
+	}
+	if (document.form.email.value == "")	
+	{
+		alert("Veuillez saisir l'email ")
+		document.form.email.focus()
+		return false;
+	}
+	if (document.form.civilite.value == "")	
+	{
+		alert("Veuillez selectionner la civilite ")
+		document.form.civilite.focus()
+		return false;
+	}
+	if (document.form.genre.value == "")	
+	{
+		alert("Veuillez selectionner le genre ")
+		document.form.genre.focus()
+		return false;
+	}
+	if (document.form.cni.value == "")	
+	{
+		alert("Veuillez saisir le CNI ")
+		document.form.cni.focus()
+		return false;
+	}
+	if (document.form.solde.value == "")	
+	{
+		alert("Veuillez saisir le Solde ")
+		document.form.solde.focus()
+		return false;
+	}
+	if (document.form.type_compte.value == "")	
+	{
+		alert("Veuillez selectionner le type de compte ")
+		document.form.type_compte.focus()
+		return false;
+	}
+	if (document.form.username.value == "")	
+	{
+		alert("Veuillez saisir le Usermane ")
+		document.form.username.focus()
+		return false;
+	}
+	if (document.form.password.value == "")	
+	{
+		alert("Veuillez saisir le Password ")
+		document.form.password.focus()
+		return false;
+	}
+}
+</script>
 <!-- Page specific script -->
 </body>
 

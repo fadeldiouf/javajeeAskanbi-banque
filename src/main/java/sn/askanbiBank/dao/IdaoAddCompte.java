@@ -8,7 +8,7 @@ import sn.askanbiBank.domaine.User;
 
 public interface IdaoAddCompte extends Idao<Client> {
 	public void addClient (Client t,Compte c,User u);
-	public  List<Object> listCompte();
+	public  List<Object> listCompte(int idagence);
 	
 
 }

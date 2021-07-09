@@ -167,7 +167,8 @@
     <!-- Brand Logo -->
     <a href="homeAgent.jsp" class="brand-link">
       <img src="../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light">Espace Agent</span>
+      <span class="brand-text font-weight-light"><% HttpSession sessio = request.getSession(); %>
+         <%= sessio.getAttribute("agence") %></span>
     </a>
 
     <!-- Sidebar -->
@@ -178,7 +179,9 @@
           <img src="../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block">Alexander Pierce</a>
+          <a href="#" class="d-block">
+          <%= sessio.getAttribute("nom") %>
+         <%= sessio.getAttribute("prenom") %></a>
         </div>
       </div>
 
@@ -215,13 +218,13 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="verification1.jsp" class="nav-link">
+                <a href="operation/Verification2.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>RETRAIT</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="verification2.jsp" class="nav-link">
+                <a href="operation/Verification3.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>VIREMENT</p>
                 </a>
