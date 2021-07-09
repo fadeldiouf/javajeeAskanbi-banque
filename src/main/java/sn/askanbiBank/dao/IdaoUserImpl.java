@@ -50,6 +50,7 @@ public class IdaoUserImpl  implements IdaoUser {
     	  User u= null;
     	   String sql= "SELECT g.idagence as id_agence, g.nomagence as agence,a.nom,a.prenom,u.idagent as ID,username,password,role FROM agence g, agent a,user u, role r WHERE g.idagence = a.idagence ANd a.idagent = u.idagent AND u.idrole = r.idrole AND username = ? AND password = ?";   	
     	     try {
+    	    	 
 				pst = con.prepareStatement(sql);
 				 pst.setString(1, username);
 		         pst.setString(2, password);
