@@ -8,7 +8,7 @@ public class Operation {
 	private TypeOperation typeoperation= new TypeOperation();
 	private Compte compte = new Compte();
 	private Date dateoperation;
-	private Double debit;
+	private Double credit;
 	private Double debite;
 	private Double envoie;
 	private Double recue;
@@ -16,14 +16,14 @@ public class Operation {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Operation(Agent agent, TypeOperation typeoperation, Compte compte, Date dateoperation, Double debit,
+	public Operation(Agent agent, TypeOperation typeoperation, Compte compte, Date dateoperation, Double credit,
 			Double debite, Double envoie, Double recue) {
 		super();
 		this.agent = agent;
 		this.typeoperation = typeoperation;
 		this.compte = compte;
 		this.dateoperation = dateoperation;
-		this.debit = debit;
+		this.credit = credit;
 		this.debite = debite;
 		this.envoie = envoie;
 		this.recue = recue;
@@ -58,11 +58,11 @@ public class Operation {
 	public void setDateoperation(Date dateoperation) {
 		this.dateoperation = dateoperation;
 	}
-	public Double getDebit() {
-		return debit;
+	public Double getCredit() {
+		return credit;
 	}
-	public void setDebit(Double debit) {
-		this.debit = debit;
+	public void setCredit(Double credit) {
+		this.credit = credit;
 	}
 	public Double getDebite() {
 		return debite;

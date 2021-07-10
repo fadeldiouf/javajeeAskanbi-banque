@@ -27,7 +27,7 @@
       <p class="login-box-msg">Verifier le compte de destination</p>
       <% HttpSession sess = request.getSession(); %>
 
-      <form action=""  method="post">
+      <form action="<%= request.getContextPath() %>/templates/viewClient/operation/"  method="post">
         <div class="input-group mb-3">
           <input type="text" class="form-control" name="num_compte" value="<%= sess.getAttribute("nom") %> <%= sess.getAttribute("prenom") %>" readonly>
           
@@ -41,7 +41,7 @@
           
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="nom" value="<%= sess.getAttribute("nom_dess") %>  <%= sess.getAttribute("prenom_dess") %>" readonly>
+          <input type="text" class="form-control" value="<%= sess.getAttribute("nom_dess") %>  <%= sess.getAttribute("prenom_dess") %>" readonly>
           </div>
           <div class="input-group mb-3">
           <input type="text" class="form-control" name="solde" value="<%= sess.getAttribute("solde_dess") %>" readonly>
@@ -52,7 +52,7 @@
           
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="montant" placeholder="Le nomtant">
+          <input type="text" class="form-control" name="envoie" placeholder="Le nomtant">
           
         </div>
         <div class="row">
@@ -80,7 +80,7 @@
 
       <div class="social-auth-links text-center mt-2 mb-3">
         <!-- /<a href="#" class="btn btn-block btn-primary">-->
-           <input type="submit" value="Connexion" class="btn btn-block btn-primary">
+           <button type="submit" class="btn btn-primary" value="virement" name="verify">Valider op </button>
         <!-- </a>-->
         
       </div>

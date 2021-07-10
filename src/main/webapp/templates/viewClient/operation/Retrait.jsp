@@ -27,17 +27,17 @@
       <p class="login-box-msg">Faire un retrait</p>
       <% HttpSession sess = request.getSession(); %>
 
-      <form action=""  method="post">
+      <form action="<%= request.getContextPath() %>/templates/viewClient/operation/"  method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="num_compte" value="<%= sess.getAttribute("nom") %>" readonly>
+          <input type="text" class="form-control"  value="<%= sess.getAttribute("nom") %>" readonly>
           
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="nom"  value="<%= sess.getAttribute("prenom") %>" readonly>
+          <input type="text" class="form-control"   value="<%= sess.getAttribute("prenom") %>" readonly>
           
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="prenom"  value="<%= sess.getAttribute("solde") %>" readonly>
+          <input type="text" class="form-control" name="balance"  value="<%= sess.getAttribute("solde") %>" readonly>
           
         </div>
         <div class="input-group mb-3">
@@ -45,11 +45,9 @@
           
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="num_compte" placeholder="montant debite">
+          <input type="text" class="form-control" name="debite" placeholder="montant debite">
           
         </div>
-        <div class="row">
-          <div class="col-8">
           <!--
             <div class="icheck-primary">
               <input type="checkbox" id="remember">
@@ -58,8 +56,7 @@
               </label>
             </div>
              -->
-             <input type="hidden" name="operation" value="retrait">
-          </div>
+             
           <!-- Google Font: Source Sans Pro 
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
@@ -68,12 +65,11 @@
           <!-- /.col -->
           
           
-        </div>
       
 
       <div class="social-auth-links text-center mt-2 mb-3">
         <!-- /<a href="#" class="btn btn-block btn-primary">-->
-           <input type="submit" value="Connexion" class="btn btn-block btn-primary">
+           <button type="submit" class="btn btn-primary" value="depot" name="verify">Valider op </button>
         <!-- </a>-->
         
       </div>

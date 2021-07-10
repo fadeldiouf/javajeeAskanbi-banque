@@ -5,6 +5,7 @@ import java.util.List;
 
 import sn.askanbiBank.domaine.Client;
 import sn.askanbiBank.domaine.Compte;
+import sn.askanbiBank.domaine.Operation;
 import sn.askanbiBank.domaine.User;
 
 public class Test {
@@ -16,16 +17,20 @@ public class Test {
 //		
 //	      
 		
-		IdaoCompte metier= new IdaoCompteImpl();
+		IdaoOperation metier= new IdaoOperationImpl();
 		// TODO Auto-generated method stub
-        List<Compte> test= metier.listeparagence(1);
-        for(Compte c: test) {
-        	System.out.println(c.getClient().getNom());
-        	System.out.println( c.getClient().getPrenom());
-        	System.out.println(c.getSolde());
-        	System.out.println(c.getType_compte());
-        	System.out.println(c.getActive());
-        	System.out.println(c.getActive());
+        List<Operation> test= metier.listopagent(1); 
+        for(Operation c: test) {
+        	System.out.println(c.getIdoperation());
+        	System.out.println( c.getCompte().getIdcompte());
+        	System.out.println(c.getCompte().getNum_compte());
+        	System.out.println(c.getDateoperation());
+        	System.out.println(c.getCredit());
+        	System.out.println(c.getDebite());
+        	System.out.println(c.getEnvoie());
+        	System.out.println(c.getRecue());
+        	System.out.println(c.getTypeoperation().getTypeoperation());
+        	
         	
         	
 
