@@ -19,7 +19,7 @@ public class IdaoOperationImpl implements IdaoOperation {
 
 
 	@Override
-	public void saveOperationDpt(Operation o,Compte c, Long num_credite, Double montant) {
+	public void saveOperationDpt(Operation o,Compte c, Long num_credite) {
 		// TODO Auto-generated method stub
 		
 		

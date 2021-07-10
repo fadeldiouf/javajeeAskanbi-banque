@@ -69,7 +69,7 @@
 
       <div class="social-auth-links text-center mt-2 mb-3">
         <!-- /<a href="#" class="btn btn-block btn-primary">-->
-           <button type="submit" class="btn btn-primary" value="depot" name="verify">Valider op </button>
+           <button type="submit" class="btn btn-primary" value="retrait" name="verify">Valider op </button>
         <!-- </a>-->
         
       </div>

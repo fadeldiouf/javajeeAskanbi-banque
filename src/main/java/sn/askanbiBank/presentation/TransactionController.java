@@ -70,6 +70,7 @@ public class TransactionController extends HttpServlet {
 				}
 				
 		    }
+		    
 			else if(verify.equals("verif3")) {
 				request.getRequestDispatcher("Verification4.jsp").forward(request, response);
 			}
@@ -94,7 +95,7 @@ public class TransactionController extends HttpServlet {
 					request.getRequestDispatcher("Virement.jsp").forward(request, response);
 				} 
 			}
-			else if(verify.equals("depot")) {
+			else if(verify.equals("retrait")) {
 				HttpSession retait1= request.getSession();
 				HttpSession retait2= request.getSession();
 				HttpSession retait3= request.getSession();

@@ -282,63 +282,36 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                OPERATIONS
+                Gestion des Agents
                 <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="verification.jsp" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p></p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="verification.jsp" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p></p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="verification.jsp" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p></p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                GESTION DES CLIENTS
-                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
                 <a href="<%= request.getContextPath() %>/templates/viewClient" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>COMPTE ACTIVE</p>
+                  <p>
+                  Liste des agents
+                  </p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="listeclientDesactive.jsp" class="nav-link">
+                <a href="verification.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>COMPTE DESACTIVE</p>
+                  <p>
+                  </p>Liste des Clients
+                  
+                </a>
+              </li>
+              <li class="nav-item">
+                <a href="verification.jsp" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Liste des operations</p>
                 </a>
               </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="operation.jsp" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
-              <p>
-                TRANSACTIONS
-              </p>
-            </a>
-          </li>
-
+          
         </ul>
         </p:if>
         <p:if test="${sessionScope['role']=='superadmin'}">
