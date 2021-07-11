@@ -17,15 +17,47 @@ public class Agent implements Serializable {
 	private String datenaissance;
 	private String telephone;
 	private String email;
-	private String civilite;
 	private String genre;
+	private String civilite;
 	private String cni;
 	public Agent() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
+	
+	
+	public Agent(String nom, String prenom, String adresse, String datenaissance, String telephone, String email,
+			String genre, String civilite, String cni) {
+		super();
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.datenaissance = datenaissance;
+		this.telephone = telephone;
+		this.email = email;
+		this.genre = genre;
+		this.civilite = civilite;
+		this.cni = cni;
+	}
+
+
+	public Agent(Agence agence, String nom, String prenom, String adresse, String datenaissance, String telephone,
+			String email, String genre, String civilite, String cni) {
+		super();
+		this.agence = agence;
+		this.nom = nom;
+		this.prenom = prenom;
+		this.adresse = adresse;
+		this.datenaissance = datenaissance;
+		this.telephone = telephone;
+		this.email = email;
+		this.genre = genre;
+		this.civilite = civilite;
+		this.cni = cni;
+	}
+
 	public Agent(int idagent, String nom, String prenom, String adresse, String datenaissance, String telephone,
-			String email, String civilite, String genre, String cni) {
+			String email, String genre, String civilite,  String cni) {
 		super();
 		this.idagent = idagent;
 		this.nom = nom;
@@ -34,8 +66,8 @@ public class Agent implements Serializable {
 		this.datenaissance = datenaissance;
 		this.telephone = telephone;
 		this.email = email;
-		this.civilite = civilite;
 		this.genre = genre;
+		this.civilite = civilite;
 		this.cni = cni;
 	}
 	public int getIdagent() {
@@ -87,17 +119,17 @@ public class Agent implements Serializable {
 	public void setEmail(String email) {
 		this.email = email;
 	}
-	public String getCivilite() {
-		return civilite;
-	}
-	public void setCivilite(String civilite) {
-		this.civilite = civilite;
-	}
 	public String getGenre() {
 		return genre;
 	}
 	public void setGenre(String genre) {
 		this.genre = genre;
+	}
+	public String getCivilite() {
+		return civilite;
+	}
+	public void setCivilite(String civilite) {
+		this.civilite = civilite;
 	}
 	public String getCni() {
 		return cni;
