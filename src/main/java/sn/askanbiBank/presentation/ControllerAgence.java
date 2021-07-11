@@ -7,12 +7,31 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import sn.askanbiBank.dao.IdaoAddCompte;
+import sn.askanbiBank.dao.IdaoAddCompteImpl;
+import sn.askanbiBank.dao.IdaoAgence;
+import sn.askanbiBank.dao.IdaoAgenceImpl;
+import sn.askanbiBank.dao.IdaoClient;
+import sn.askanbiBank.dao.IdaoClientImpl;
+import sn.askanbiBank.dao.IdaoCompte;
+import sn.askanbiBank.dao.IdaoCompteImpl;
+
 /**
  * Servlet implementation class ControllerAgence
  */
 @WebServlet("/ControllerAgence")
 public class ControllerAgence extends HttpServlet {
+	/**
+	 * 
+	 */
 	private static final long serialVersionUID = 1L;
+	private IdaoAgence metier;
+	
+	
+	public void init() throws ServletException {
+		metier= new IdaoAgenceImpl();
+		
+	}
        
     /**
      * @see HttpServlet#HttpServlet()

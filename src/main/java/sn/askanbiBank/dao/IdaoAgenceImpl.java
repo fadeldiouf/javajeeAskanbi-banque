@@ -9,7 +9,10 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sn.askanbiBank.domaine.Agence;
+import sn.askanbiBank.domaine.Agent;
 import sn.askanbiBank.domaine.Client;
+import sn.askanbiBank.domaine.Compte;
+import sn.askanbiBank.domaine.Operation;
 import sn.askanbiBank.utilis.SingletonConnection;
 
 public class IdaoAgenceImpl implements IdaoAgence {
@@ -114,19 +117,48 @@ public class IdaoAgenceImpl implements IdaoAgence {
 	}
 
 	@Override
-	public List<Agence> listeClient() {
+	public List<Compte> listeClient() {
+		List<Compte> liste = new ArrayList<Compte>();
+		String sql="SELECT l.idclient,nom,prenom,adresse,datenaissance,telephone,email,civilite,genre,cni,c.idcompte,num_compte,solde,datecreation,type_compte,active FROM client l,compte c WHERE l.idclient=c.idclient and  l.idagent IN (SELECT idagent FROM agent WHERE idagence=1)";
+		try {
+			pst=con.prepareStatement(sql);
+			rs=pst.executeQuery();
+			while(rs.next()) {
+			Compte c= new Compte();
+			c.getClient().setIdclient(rs.getInt("idclient"));
+			c.getClient().setNom(rs.getString("nom"));
+			c.getClient().setPrenom(rs.getString("prenom"));
+			c.getClient().setAdresse(rs.getString("adresse"));
+			c.getClient().setDatenaissance(rs.getString("datenaissance"));
+			c.getClient().setTelephone(rs.getString("telephone"));
+			c.getClient().setEmail(rs.getString("email"));
+			c.getClient().setCivilite(rs.getString("civilite"));
+			c.getClient().setGenre(rs.getString("genre"));
+			c.getClient().setCni(rs.getString("cni"));
+			c.setIdcompte(rs.getInt("idcompte"));
+			c.setNum_compte(rs.getLong("num_compte"));
+			c.setSolde(rs.getLong("solde"));
+			c.setDatecreation(rs.getDate("datecreation"));
+			c.setType_compte(rs.getString("type_compte"));
+			c.setActive(rs.getBoolean("active"));
+			liste.add(c);
+			}
+			pst.close(); 
+		} catch (Exception e) {
+			
+		}
+		return liste;
+		
+	}
+
+	@Override
+	public List<Agent> listeAgent() {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public List<Agence> listeAgent() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public List<Agence> listeOperations() {
+	public List<Operation> listeOperations() {
 		// TODO Auto-generated method stub
 		return null;
 	}

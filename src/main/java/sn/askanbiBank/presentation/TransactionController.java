@@ -80,7 +80,6 @@ public class TransactionController extends HttpServlet {
 				
 		    }
 		    
-<<<<<<< HEAD
 		    else if  (verify.equals("verif0")) {
 		    	HttpSession session= request.getSession();
 				HttpSession session1= request.getSession();
@@ -103,8 +102,6 @@ public class TransactionController extends HttpServlet {
 				}
 				
 		    }
-=======
->>>>>>> 30b8f0d1e1d5514281379884bdc855763fb421ed
 			else if(verify.equals("verif3")) {
 				HttpSession s1= request.getSession();
 				HttpSession s2= request.getSession();
