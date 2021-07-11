@@ -1,4 +1,4 @@
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+ <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="index-header.jsp"%>
 <%@ include file="index-footer.jsp"%>
 <!DOCTYPE html>
@@ -30,13 +30,13 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Listes des clients</h1>
+            <h1>Listes des agents</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
              <td>
-              <a href="ajouterClient.jsp">
-              <button type="button" class="btn btn-block btn-primary">Nouveau client</button>
+              <a href="ajouterAgent.jsp">
+              <button type="button" class="btn btn-block btn-primary">Nouveau agent</button>
               </a>
              </td>
 
@@ -64,26 +64,32 @@
                     <th>Date_naiss</th>
                     <th>Telephone</th>
                     <th>Email</th>
-                    <th>Civilite</th>
-                    <th>genre</th>
                     <th>Cni</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Actions</th>
                   </tr>
                   </thead>
-                  <c:forEach items="${model.clients}" var="c">
                   <tbody>
+                  <c:forEach items="${model.users}" var="c">
                   <tr>
-                    <th>${c.nom}</th>
-                    <th>${c.prenom}</th>
-                    <th>${c.addresse}</th>
-                    <th>${c.datenaissance}</th>
-                    <th>${c.telephone}</th>
-                    <th>${c.email}</th>
-                    <th>${c.civilite}</th>
-                    <th>${c.genre}</th>
-                    <th>${c.cni}</th>
+                    <th>${c.agent.nom}</th>
+                    <th>${c.agent.prenom}</th>
+                    <th>${c.agent.adresse}</th>
+                    <th>${c.agent.datenaissance}</th>
+                    <th>${c.agent.telephone}</th>
+                    <th>${c.agent.email}</th>
+                    <th>${c.agent.cni}</th>
+                    <th>${c.username}</th>
+                    <th>${c.password}</th>
+                    
+                    <th> 
+                     <a href="<%= request.getContextPath() %>/templates/viewAgent?action=editer&id=${c.agent.idagent}" class="btn btn-primary btn-sm">  
+                     <i class="fas fa-edit" ></i></a>                  
+                    </th>
                   </tr>
-                  </tbody>
                   </c:forEach>
+                  </tbody>
                   <tfoot>
                   <tr>
                     <th>Nom</th>
@@ -92,9 +98,10 @@
                     <th>Date_naiss</th>
                     <th>Telephone</th>
                     <th>Email</th>
-                    <th>Civilite</th>
-                    <th>genre</th>
                     <th>Cni</th>
+                    <th>Username</th>
+                    <th>Password</th>
+                    <th>Actions</th>
                   </tr>                 
                   </tfoot>
                 </table>

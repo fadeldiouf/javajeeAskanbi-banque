@@ -288,7 +288,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<%= request.getContextPath() %>/templates/viewClient" class="nav-link">
+                <a href="<%= request.getContextPath() %>/templates/viewAgent/" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>
                   Liste des agents

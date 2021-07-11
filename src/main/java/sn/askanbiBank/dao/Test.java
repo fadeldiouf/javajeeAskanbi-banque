@@ -3,6 +3,7 @@ package sn.askanbiBank.dao;
 
 import java.util.List;
 
+import sn.askanbiBank.domaine.Agent;
 import sn.askanbiBank.domaine.Client;
 import sn.askanbiBank.domaine.Compte;
 import sn.askanbiBank.domaine.Operation;
@@ -17,19 +18,21 @@ public class Test {
 //		
 //	      
 		
-		IdaoOperation metier= new IdaoOperationImpl();
+		IdaoAddAgent metier= new IdaoAddAgentImpl();
 		// TODO Auto-generated method stub
-        List<Operation> test= metier.listopagent(1); 
-        for(Operation c: test) {
-        	System.out.println(c.getIdoperation());
-        	System.out.println( c.getCompte().getIdcompte());
-        	System.out.println(c.getCompte().getNum_compte());
-        	System.out.println(c.getDateoperation());
-        	System.out.println(c.getCredit());
-        	System.out.println(c.getDebite());
-        	System.out.println(c.getEnvoie());
-        	System.out.println(c.getRecue());
-        	System.out.println(c.getTypeoperation().getTypeoperation());
+        List<User> test= metier.listUser(1); 
+        for(User c: test) {
+        	System.out.println(c.getAgent().getIdagent());
+        	System.out.println(c.getAgent().getNom());
+        	System.out.println(c.getAgent().getPrenom());
+        	System.out.println(c.getAgent().getAdresse());
+        	System.out.println(c.getAgent().getTelephone());
+        	System.out.println(c.getAgent().getGenre());
+        	System.out.println(c.getAgent().getCivilite());
+        	System.out.println(c.getAgent().getCni());
+        	System.out.println(c.getUsername());
+        	System.out.println(c.getPassword());
+        	
         	
         	
         	
