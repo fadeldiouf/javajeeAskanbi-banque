@@ -3,11 +3,11 @@
 <%@ include file="index-footer.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Liste des clients</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
+  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
   <!-- daterange picker -->
   <link rel="stylesheet" href="../plugins/daterangepicker/daterangepicker.css">
   <!-- iCheck for checkboxes and radio inputs -->
@@ -26,169 +26,122 @@
   <!-- dropzonejs -->
   <link rel="stylesheet" href="../plugins/dropzone/min/dropzone.min.css">
   <!-- Theme style -->
-  <!-- Google Font: Source Sans Pro -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="../plugins/fontawesome-free/css/all.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="../plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="../plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="../plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-  <!-- Theme style -->
   <link rel="stylesheet" href="../dist/css/adminlte.min.css">
-</head>
-<body class="hold-transition sidebar-mini">
-<div class="wrapper">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sign Up Form</title>
 
 
-  <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper">
-    <!-- Content Header (Page header) -->
+<body>
+    <div class="content-wrapper md-2">
+    <div class="main">
     <section class="content-header">
-      <div class="container-fluid">
-        <div class="row mb-2">
-          <div class="col-sm-6">
-            <h1>Listes des clients</h1>
-          </div>
-          <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-             <td>
-              <a href="ajouterClient.jsp">
-              <button type="button" class="btn btn-block btn-primary">Nouveau client</button>
-              </a>
-             </td>
-
-            </ol>
-          </div>
-        </div>
-      </div><!-- /.container-fluid -->
-    </section>
-
-    <!-- Main content -->
-    <section class="content">
-      <div class="container-fluid">
-        <div class="row">
-          <div class="col-12">
-            <!-- /.card -->
-            <div class="card">
-              <!-- /.card-header -->
-              <div class="card-body">
-                <table id="example1" class="table table-bordered table-striped">
-                  <thead>
-                  <tr>
-                    <th>Nom</th>
-                    <th>Prenom</th>
-                    <th>Addresse</th>
-                    <th>Date_naiss</th>
-                    <th>Telephone</th>
-                    <th>Email</th>
-                    <th>Cni</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                  </tr>
-                  </thead>
-                  <tbody>
-                  <c:forEach items="${model.comptes}" var="c">
-                  <tr>
-                    <th>${c.client.nom}</th>
-                    <th>${c.client.prenom}</th>
-                    <th>${c.client.adresse}</th>
-                    <th>${c.client.datenaissance}</th>
-                    <th>${c.client.telephone}</th>
-                    <th>${c.client.email}</th>
-                    <th>${c.client.cni}</th>
-                    <th>${c.active}</th>
-                    <th> 
-                     <a href="<%= request.getContextPath() %>/templates/viewClient?action=detail&id=${c.client.idclient}"class="btn btn-info btn-sm">
-                     <i class="fa fa-eye"></i></a>
-                     <a href="<%= request.getContextPath() %>/templates/viewClient?action=editer&id=${c.client.idclient}" class="btn btn-primary btn-sm">  
-                     <i class="fas fa-edit" ></i></a>                  
-                    </th>
-                  </tr>
-                  </c:forEach>
-                  </tbody>
-                  <tfoot>
-                  <tr>
-                    <th>Nom</th>
-                    <th>Prenom</th>
-                    <th>Addresse</th>
-                    <th>Date_naiss</th>
-                    <th>Telephone</th>
-                    <th>Email</th>
-                    <th>Cni</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                  </tr>                 
-                  </tfoot>
-                </table>
+        <div class="container-fluide">
+           
+            <form method="POST" action="<%= request.getContextPath() %>/templates/viewSiege/" class="signup-form">
+	                    <div class="row md-2">
+		                    <div class="col-md-6">
+			                    <div class="card card-primary">
+			                        <div class="card-header">
+			                          <h3 class="card-title">Info agence</h3>
+			                         </div>
+						                  <div class="card-body">
+						                    <div class="row ">
+						                    <div class="col-md-6">
+						                    <div class="form-group">
+							                    <div class="input-group mb-2">
+							                    <div class="input-group-text">
+									                   <span class="fas fa-user"></span>
+									                </div>
+									             <input type="text" class="form-control" placeholder=" nom" name="nom">
+									              <div class="input-group-append">
+									              </div>
+									             </div>
+							                  </div>
+							                  </div>
+							                  <div class="col-md-6">
+							                  <div class="form-group">
+							                    <div class="input-group mb-2">
+							                        <div class="input-group-text">
+									                   <span class="fas fa-user"></span>
+									                </div>
+									             <input type="text" class="form-control" placeholder="adresse" name="adresse">
+									              <div class="input-group-append">
+									              </div>
+									             </div>
+							                  </div>
+							                  </div>
+							                  </div>
+							                
+							                  <div class="form-group">
+							                    <div class="input-group date" id="reservationdate" data-target-input="nearest">
+							                    <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker"> 
+							                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+							                    </div>
+							                        <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate" placeholder=" Date création" name="datenaissance" />
+							                      
+							                    </div>
+							                </div>
+							                <div class="form-group">
+							                   <div class="input-group">
+							                    <div class="input-group-prepend">
+							                      <span class="input-group-text"><i class="fas fa-phone"></i></span>
+							                    </div>
+							                    <input type="text" class="form-control" placeholder=" Telephone" name="telephone" >
+							                   </div>
+							                </div>
+							                <div class="form-group">
+							                   <div class="input-group">
+							                    <div class="input-group-prepend">
+							                      <span class="input-group-text"><i class="fas fa-email"></i></span>
+							                    </div>
+							                    <input type="text" class="form-control" placeholder="Email" name="email" >
+							                   </div>
+							                </div>
+							                
+			                                </div>
+			                     </div>
+		                    </div>
+		                    <div class="col-md-6">
+			                   
+                       
+                         </div>
+                    <button type="submit" class="btn btn-primary" value="ajouter" name="action">Enregistrer </button>
+                  </form>
               </div>
-              <!-- /.card-body -->
-            </div>
-            <!-- /.card -->
-          </div>
-          <!-- /.col -->
-        </div>
-        <!-- /.row -->
-      </div>
-      <!-- /.container-fluid -->
-    </section>
-    <!-- /.content -->
-  </div>
-  <!-- /.content-wrapper -->
-
-  <!-- Control Sidebar -->
-  <aside class="control-sidebar control-sidebar-dark">
-    <!-- Control sidebar content goes here -->
-  </aside>
-  <!-- /.control-sidebar -->
+</section>
 </div>
-<!-- ./wrapper -->
+</div>
 
-<!-- jQuery -->
+<!-- Bootstrap 4 -->
 <script src="../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
 <script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<!-- Select2 -->
+<script src="../plugins/select2/js/select2.full.min.js"></script>
+<!-- Bootstrap4 Duallistbox -->
+<script src="../plugins/bootstrap4-duallistbox/jquery.bootstrap-duallistbox.min.js"></script>
+<!-- InputMask -->
+<script src="../plugins/moment/moment.min.js"></script>
+<script src="../plugins/inputmask/jquery.inputmask.min.js"></script>
+<!-- date-range-picker -->
+<script src="../plugins/daterangepicker/daterangepicker.js"></script>
+<!-- bootstrap color picker -->
+<script src="../plugins/bootstrap-colorpicker/js/bootstrap-colorpicker.min.js"></script>
+<!-- Tempusdominus Bootstrap 4 -->
+<script src="../plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
 <!-- Bootstrap Switch -->
 <script src="../plugins/bootstrap-switch/js/bootstrap-switch.min.js"></script>
-<!-- DataTables  & ../Plugins -->
-
-<script src="../plugins/datatables/jquery.dataTables.min.js"></script>
-<script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
-<script src="../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
-<script src="../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
-<script src="../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
-<script src="../plugins/jszip/jszip.min.js"></script>
-<script src="../plugins/pdfmake/pdfmake.min.js"></script>
-<script src="../plugins/pdfmake/vfs_fonts.js"></script>
-<script src="../plugins/datatables-buttons/js/buttons.html5.min.js"></script>
-<script src="../plugins/datatables-buttons/js/buttons.print.min.js"></script>
-<script src="../plugins/datatables-buttons/js/buttons.colVis.min.js"></script>
+<!-- BS-Stepper -->
+<script src="../plugins/bs-stepper/js/bs-stepper.min.js"></script>
+<!-- dropzonejs -->
+<script src="../plugins/dropzone/min/dropzone.min.js"></script>
 <!-- AdminLTE App -->
 <script src="../dist/js/adminlte.min.js"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="../dist/js/demo.js"></script>
 <!-- Page specific script -->
-<script>
-  $(function () {
-    $("#example1").DataTable({
-      "responsive": true, "lengthChange": false, "autoWidth": false,
-      "buttons": ["copy", "csv", "excel", "pdf", "print"]
-    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
-    $('#example2').DataTable({
-      "paging": true,
-      "lengthChange": false,
-      "searching": false,
-      "ordering": true,
-      "info": true,
-      "autoWidth": false,
-      "responsive": true,
-    });
-  });
-</script>
-<footer class="main-footer">
-    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">ASKANBIBANK</a>.</strong>
-</footer>
 <script>
   $(function () {
     //Initialize Select2 Elements
@@ -269,6 +222,8 @@
   document.addEventListener('DOMContentLoaded', function () {
     window.stepper = new Stepper(document.querySelector('.bs-stepper'))
   })
+ var stepper = new Stepper(document.querySelector('.bs-stepper'))
+stepper.next()
 
   // DropzoneJS Demo Code Start
   Dropzone.autoDiscover = false
@@ -323,3 +278,7 @@
   }
   // DropzoneJS Demo Code End
 </script>
+
+<footer class="main-footer">
+    <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">ASKANBIBANK</a>.</strong>
+</footer>

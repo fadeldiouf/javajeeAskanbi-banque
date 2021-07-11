@@ -24,32 +24,30 @@
       <a href="templates/index2.html" class="h1"><b>Askanbibank</b></a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Verifier le compte de destination</p>
+      <p class="login-box-msg">Faire un Dépot</p>
       <% HttpSession sess = request.getSession(); %>
 
-      <form action=""  method="post">
+      <form action="<%= request.getContextPath() %>/templates/viewClient/operation/"  method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="nomCl1" value="<%= sess.getAttribute("nomCl1") %>" readonly>
+          <input type="text" class="form-control"  value="<%= sess.getAttribute("nom") %>" readonly>
           
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="prenomCl1"  value="<%= sess.getAttribute("prenomCl1") %>" readonly>
+          <input type="text" class="form-control"   value="<%= sess.getAttribute("prenom") %>" readonly>
           
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="solde1"  value="<%= sess.getAttribute("solde1") %>" readonly>
+          <input type="text" class="form-control" name="balance"  value="<%= sess.getAttribute("solde") %>" readonly>
           
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="num_compte1" value="<%= sess.getAttribute("num_compte1") %>" readonly>
+          <input type="text" class="form-control" name="num_compte" value="<%= sess.getAttribute("num_compte") %>" readonly>
           
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="num_compte_dess" placeholder="Le numero compte destinataire">
+          <input type="text" class="form-control" name="credit" placeholder="montant credit">
           
         </div>
-        <div class="row">
-          <div class="col-8">
           <!--
             <div class="icheck-primary">
               <input type="checkbox" id="remember">
@@ -58,8 +56,7 @@
               </label>
             </div>
              -->
-             <input type="hidden" name="operation" value="retrait">
-          </div>
+             
           <!-- Google Font: Source Sans Pro 
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
@@ -68,15 +65,13 @@
           <!-- /.col -->
           
           
-        </div>
       
 
       <div class="social-auth-links text-center mt-2 mb-3">
         <!-- /<a href="#" class="btn btn-block btn-primary">-->
-           <button type="submit" class="btn btn-primary" value="verif4" name="verify">Valider </button>
+           <button type="submit" class="btn btn-primary" value="depotmontant" name="verify">Valider op </button>
         <!-- </a>-->
         
-      </div>
       </div>
       <!-- /.social-auth-links -->
 </form>

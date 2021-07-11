@@ -117,6 +117,9 @@ public class  Compte implements Serializable{
             s.append(str.charAt(index)); 
         } 
         return s.toString(); 
-    } 
+    }
+	public static void main(String[] args) {
+		//3338308954
+	} 
 
 }

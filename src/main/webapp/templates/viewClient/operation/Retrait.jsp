@@ -29,11 +29,11 @@
 
       <form action="<%= request.getContextPath() %>/templates/viewClient/operation/"  method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control"  value="<%= sess.getAttribute("nom") %>" readonly>
+          <input type="text" class="form-control"  value="<%= sess.getAttribute("nomCl") %>" readonly>
           
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control"   value="<%= sess.getAttribute("prenom") %>" readonly>
+          <input type="text" class="form-control"   value="<%= sess.getAttribute("prenomCl") %>" readonly>
           
         </div>
         <div class="input-group mb-3">

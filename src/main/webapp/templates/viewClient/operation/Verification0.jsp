@@ -24,42 +24,14 @@
       <a href="templates/index2.html" class="h1"><b>Askanbibank</b></a>
     </div>
     <div class="card-body">
-      <p class="login-box-msg">Verifier le compte de destination</p>
-      <% HttpSession sess = request.getSession(); %>
+      <p class="login-box-msg">Verification numCompte</p>
 
-      <form action=""  method="post">
+      <form action="<%= request.getContextPath() %>/templates/viewClient/operation/"  method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="nomCl1" value="<%= sess.getAttribute("nomCl1") %>" readonly>
+          <input type="text" class="form-control" name="num_compte" placeholder="numerocompte">
           
         </div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" name="prenomCl1"  value="<%= sess.getAttribute("prenomCl1") %>" readonly>
-          
-        </div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" name="solde1"  value="<%= sess.getAttribute("solde1") %>" readonly>
-          
-        </div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" name="num_compte1" value="<%= sess.getAttribute("num_compte1") %>" readonly>
-          
-        </div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" name="num_compte_dess" placeholder="Le numero compte destinataire">
-          
-        </div>
-        <div class="row">
-          <div class="col-8">
-          <!--
-            <div class="icheck-primary">
-              <input type="checkbox" id="remember">
-              <label for="remember">
-                Remember Me
-              </label>
-            </div>
-             -->
-             <input type="hidden" name="operation" value="retrait">
-          </div>
+
           <!-- Google Font: Source Sans Pro 
           <div class="col-4">
             <button type="submit" class="btn btn-primary btn-block">Sign In</button>
@@ -68,15 +40,14 @@
           <!-- /.col -->
           
           
-        </div>
+     
       
 
       <div class="social-auth-links text-center mt-2 mb-3">
         <!-- /<a href="#" class="btn btn-block btn-primary">-->
-           <button type="submit" class="btn btn-primary" value="verif4" name="verify">Valider </button>
+           <button type="submit" class="btn btn-primary" value="verif0" name="verify">Valider </button>
         <!-- </a>-->
         
-      </div>
       </div>
       <!-- /.social-auth-links -->
 </form>

@@ -243,19 +243,13 @@
               <li class="nav-item">
                 <a href="<%= request.getContextPath() %>/templates/viewClient" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>COMPTE ACTIVE</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="listeclientDesactive.jsp" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>COMPTE DESACTIVE</p>
+                  <p>LISTE DES CLIENTS</p>
                 </a>
               </li>
             </ul>
           </li>
           <li class="nav-item">
-            <a href="operation.jsp" class="nav-link">
+            <a href="<%= request.getContextPath() %>/templates/viewClient/operation" class="nav-link">
               <i class="nav-icon fas fa-columns"></i>
               <p>
                 TRANSACTIONS
