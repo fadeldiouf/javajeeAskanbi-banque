@@ -1,6 +1,6 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ include file="../index-header.jsp"%>
-<%@ include file="../index-footer.jsp"%>
+<%@ include file="index-header.jsp"%>
+<%@ include file="index-footer.jsp"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -30,15 +30,10 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Listes des clients</h1>
+            <h1>Listes des Operations</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-             <td>
-              <a href="ajouterClient.jsp">
-              <button type="button" class="btn btn-block btn-primary">Nouveau client</button>
-              </a>
-             </td>
 
             </ol>
           </div>
@@ -58,48 +53,44 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Nom</th>
-                    <th>Prenom</th>
-                    <th>Addresse</th>
-                    <th>Date_naiss</th>
-                    <th>Telephone</th>
-                    <th>Email</th>
-                    <th>Cni</th>
-                    <th>Status</th>
-                    <th>Actions</th>
+                    <th>Idoperation</th>
+                    <th>Idcompte</th>
+                    <th>Num_compte</th>
+                    <th>Dateoperation</th>
+                    <th>Credit</th>
+                    <th>Debite</th>
+                    <th>Envoie</th>
+                    <th>Recue</th>
+                    <th>TypeOpp</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <c:forEach items="${model.comptes}" var="c">
+                  <c:forEach items="${model.operations}" var="c">
                   <tr>
-                    <th>${c.client.nom}</th>
-                    <th>${c.client.prenom}</th>
-                    <th>${c.client.adresse}</th>
-                    <th>${c.client.datenaissance}</th>
-                    <th>${c.client.telephone}</th>
-                    <th>${c.client.email}</th>
-                    <th>${c.client.cni}</th>
-                    <th>${c.active}</th>
-                    <th> 
-                     <a href="<%= request.getContextPath() %>/templates/viewClient?action=detail&id=${c.client.idclient}"class="btn btn-info btn-sm">
-                     <i class="fa fa-eye"></i></a>
-                     <a href="<%= request.getContextPath() %>/templates/viewClient?action=editer&id=${c.client.idclient}" class="btn btn-primary btn-sm">  
-                     <i class="fas fa-edit" ></i></a>                  
-                    </th>
+                    <th>${c.idoperation}</th>
+                    <th>${c.compte.idcompte}</th>
+                    <th>${c.compte.num_compte}</th>
+                    <th>${c.dateoperation}</th>
+                    <th>${c.credit}</th>
+                    <th>${c.debite}</th>
+                    <th>${c.envoie}</th>
+                    <th>${c.recue}</th>
+                    <th>${c.typeoperation.typeoperation}</th>
                   </tr>
                   </c:forEach>
                   </tbody>
                   <tfoot>
                   <tr>
-                    <th>Nom</th>
-                    <th>Prenom</th>
-                    <th>Addresse</th>
-                    <th>Date_naiss</th>
-                    <th>Telephone</th>
-                    <th>Email</th>
-                    <th>Cni</th>
-                    <th>Status</th>
-                    <th>Actions</th>
+                    <th>Idoperation</th>
+                    <th>Idcompte</th>
+                    <th>Num_compte</th>
+                    <th>Dateoperation</th>
+                    <th>Credit</th>
+                    <th>Debite</th>
+                    <th>Envoie</th>
+                    <th>Recue</th>
+                    <th>TypeOpp</th>
+                    
                   </tr>                 
                   </tfoot>
                 </table>
@@ -127,16 +118,16 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../../plugins/jquery/jquery.min.js"></script>
+<script src="../../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables  & ../Plugins -->
 <script src="../../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>
 <script src="../../plugins/datatables-responsive/js/dataTables.responsive.min.js"></script>
 <script src="../../plugins/datatables-responsive/js/responsive.bootstrap4.min.js"></script>
 <script src="../../plugins/datatables-buttons/js/dataTables.buttons.min.js"></script>
-<script src="./../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
+<script src="../../plugins/datatables-buttons/js/buttons.bootstrap4.min.js"></script>
 <script src="../../plugins/jszip/jszip.min.js"></script>
 <script src="../../plugins/pdfmake/pdfmake.min.js"></script>
 <script src="../../plugins/pdfmake/vfs_fonts.js"></script>

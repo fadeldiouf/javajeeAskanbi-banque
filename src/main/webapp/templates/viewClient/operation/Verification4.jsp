@@ -29,19 +29,19 @@
 
       <form action=""  method="post">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="nom" value="<%= sess.getAttribute("nom") %>" readonly>
+          <input type="text" class="form-control" name="nomCl1" value="<%= sess.getAttribute("nomCl1") %>" readonly>
           
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="prenom"  value="<%= sess.getAttribute("prenom") %>" readonly>
+          <input type="text" class="form-control" name="prenomCl1"  value="<%= sess.getAttribute("prenomCl1") %>" readonly>
           
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="solde"  value="<%= sess.getAttribute("solde") %>" readonly>
+          <input type="text" class="form-control" name="solde1"  value="<%= sess.getAttribute("solde1") %>" readonly>
           
         </div>
         <div class="input-group mb-3">
-          <input type="text" class="form-control" name="num_compte" value="<%= sess.getAttribute("num_compte") %>" readonly>
+          <input type="text" class="form-control" name="num_compte1" value="<%= sess.getAttribute("num_compte1") %>" readonly>
           
         </div>
         <div class="input-group mb-3">

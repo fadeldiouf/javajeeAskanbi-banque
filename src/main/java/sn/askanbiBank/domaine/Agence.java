@@ -1,12 +1,17 @@
 package sn.askanbiBank.domaine;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Agence implements Serializable {
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	private int idagence;
 	private  String nomagence;
 	private String adresse;
-	private String datenaissance;
+	private Date datecreation;
 	private String email;
 	private String telephone;
 	public Agence() {
@@ -14,13 +19,23 @@ public class Agence implements Serializable {
 		// TODO Auto-generated constructor stub
 		
 	}
-	public Agence(int idagence, String nomagence, String adresse, String datenaissance, String email,
+	
+	public Agence(String nomagence, String adresse, Date datecreation, String email, String telephone) {
+		super();
+		this.nomagence = nomagence;
+		this.adresse = adresse;
+		this.datecreation = datecreation;
+		this.email = email;
+		this.telephone = telephone;
+	}
+
+	public Agence(int idagence, String nomagence, String adresse, Date datecreation, String email,
 			String telephone) {
 		super();
 		this.idagence = idagence;
 		this.nomagence = nomagence;
 		this.adresse = adresse;
-		this.datenaissance = datenaissance;
+		this.datecreation = datecreation;
 		this.email = email;
 		this.telephone = telephone;
 	}
@@ -42,11 +57,11 @@ public class Agence implements Serializable {
 	public void setAdresse(String adresse) {
 		this.adresse = adresse;
 	}
-	public String getDatenaissance() {
-		return datenaissance;
+	public Date getDatecreation() {
+		return datecreation;
 	}
-	public void setDatenaissance(String datenaissance) {
-		this.datenaissance = datenaissance;
+	public void setDatecreation(Date datecreation) {
+		this.datecreation = datecreation;
 	}
 	public String getEmail() {
 		return email;

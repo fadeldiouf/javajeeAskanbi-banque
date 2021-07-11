@@ -1,6 +1,7 @@
 package sn.askanbiBank.presentation;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -16,6 +17,7 @@ import sn.askanbiBank.dao.IdaoOperationImpl;
 import sn.askanbiBank.domaine.Agent;
 import sn.askanbiBank.domaine.Compte;
 import sn.askanbiBank.domaine.Operation;
+import sn.askanbiBank.model.OperationModel;
 /**
  * @author Fadilou
  *
@@ -47,7 +49,14 @@ public class TransactionController extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
+		OperationModel model= new OperationModel();
+		HttpSession opsession = request.getSession();
+		int idagent =Integer.parseInt(opsession.getAttribute("ID").toString());
+		List<Operation> operations=idaoop.listopagent(idagent);
+		model.setOperations(operations);
+		request.setAttribute("model", model);
 		String verify= request.getParameter("verify");
+		if(verify!=null) {
 		    if (verify.equals("verif2")) {
 		    	HttpSession session= request.getSession();
 				HttpSession session1= request.getSession();
@@ -57,13 +66,13 @@ public class TransactionController extends HttpServlet {
 		    	Long num_compte= Long.parseLong(request.getParameter("num_compte"));
 				Compte c= idaocompte.verification(num_compte);
 				if(c != null) {
-					String nom= c.getClient().getNom();
-					String prenom= c.getClient().getPrenom();
+					String nomCl= c.getClient().getNom();
+					String prenomCl= c.getClient().getPrenom();
 					Double solde= c.getSolde();
 					int idcompte= c.getIdcompte();
 					session.setAttribute("num_compte", num_compte);
-					session1.setAttribute("nom", nom);
-					session2.setAttribute("prenom", prenom);
+					session1.setAttribute("nomCl", nomCl);
+					session2.setAttribute("prenomCl", prenomCl);
 					session4.setAttribute("solde", solde);
 					session3.setAttribute("idcompte", idcompte);
 				    request.getRequestDispatcher("Retrait.jsp").forward(request, response);
@@ -72,8 +81,26 @@ public class TransactionController extends HttpServlet {
 		    }
 		    
 			else if(verify.equals("verif3")) {
-				request.getRequestDispatcher("Verification4.jsp").forward(request, response);
-			}
+				HttpSession s1= request.getSession();
+				HttpSession s2= request.getSession();
+				HttpSession s3= request.getSession();
+				HttpSession s4= request.getSession();
+				HttpSession s5= request.getSession();
+		    	Long num_compte= Long.parseLong(request.getParameter("num_compte"));
+				Compte cret= idaocompte.verification(num_compte);
+				if(cret != null) {
+					String nomCl1= cret.getClient().getNom();
+					String prenomCl1= cret.getClient().getPrenom();
+					Double solde1= cret.getSolde();
+					int idcompte1= cret.getIdcompte();
+					s1.setAttribute("num_compte1", num_compte);
+					s2.setAttribute("nomCl1", nomCl1);
+					s3.setAttribute("prenomCl1", prenomCl1);
+					s4.setAttribute("solde1", solde1);
+					s5.setAttribute("idcompte1", idcompte1);
+					request.getRequestDispatcher("Verification4.jsp").forward(request, response);
+				}
+				}
 			else if (verify.equals("verif4")) {
 				HttpSession session6= request.getSession();
 				HttpSession session7= request.getSession();
@@ -100,6 +127,7 @@ public class TransactionController extends HttpServlet {
 				HttpSession retait2= request.getSession();
 				HttpSession retait3= request.getSession();
 				HttpSession retait4= request.getSession();
+				HttpSession retait5= request.getSession();
 				Operation op= new Operation();
 				Compte compte= new Compte();
 				Compte compte2= new Compte();
@@ -110,12 +138,14 @@ public class TransactionController extends HttpServlet {
 				compte2.setIdcompte(Integer.parseInt(retait4.getAttribute("idcompte").toString()));
 				Double debite= Double.parseDouble(request.getParameter("debite").toString());
 				Double solde= balance-debite;
+				retait5.setAttribute("debite", debite);
 				compte.setSolde(solde);
 				compte.setNum_compte(num_debite);
 				op.setAgent(agent);
 				op.setCompte(compte2);
 				op.setDebite(debite);
-				idaoop.saveOperationRet(op, compte, num_debite);	
+				idaoop.saveOperationRet(op, compte, num_debite);
+				request.getRequestDispatcher("FacRetrait.jsp").forward(request, response);
 			}
 			else if(verify.equals("virement")) {
 				HttpSession virement1= request.getSession();
@@ -125,6 +155,7 @@ public class TransactionController extends HttpServlet {
 				HttpSession virement5= request.getSession();
 				HttpSession virement6= request.getSession();
 				HttpSession virement7= request.getSession();
+				HttpSession virement8= request.getSession();
 				Operation op1= new Operation();
 				Operation op2= new Operation();
 				Compte c1= new Compte();
@@ -140,6 +171,7 @@ public class TransactionController extends HttpServlet {
 				Double balance2= Double.parseDouble(virement6.getAttribute("solde_dess").toString());
 				Long num_recue=Long.parseLong(virement7.getAttribute("num_compte_dess").toString());
 				Double envoie= Double.parseDouble(request.getParameter("envoie").toString());
+				virement8.setAttribute("envoie",envoie);
 				Double solde1= balance1-envoie;
 				Double solde2= balance2+envoie;
 				c1.setSolde(solde1);
@@ -153,13 +185,15 @@ public class TransactionController extends HttpServlet {
 				op2.setCompte(compte2);
 				op2.setRecue(envoie);
 				idaoop.saveOperationVrmt(op1, op2, c1, c2, num_envoie, num_recue);
+				request.getRequestDispatcher("FacVirement.jsp").forward(request, response);
 		
 				
 			}
-			else
-				
-				request.getRequestDispatcher("Verification2.jsp").forward(request, response);
-			}	
+		}
+			else {
+				request.getRequestDispatcher("operation.jsp").forward(request, response);
+			}
+		}
 			
 			
 	}	
