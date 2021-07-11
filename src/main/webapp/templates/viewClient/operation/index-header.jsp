@@ -1,44 +1,38 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="p"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Space Agent | Dashboard</title>
+  <title>Operation</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
-  <!-- DataTables -->
-  <link rel="stylesheet" href="plugins/datatables-bs4/css/dataTables.bootstrap4.min.css">
-  <link rel="stylesheet" href="plugins/datatables-responsive/css/responsive.bootstrap4.min.css">
-  <link rel="stylesheet" href="plugins/datatables-buttons/css/buttons.bootstrap4.min.css">
-  <link rel="stylesheet" href="plugins/fontawesome-free/css/all.min.css">
+  <link rel="stylesheet" href="../../plugins/fontawesome-free/css/all.min.css">
   <!-- Ionicons -->
   <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
   <!-- Tempusdominus Bootstrap 4 -->
-  <link rel="stylesheet" href="plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
+  <link rel="stylesheet" href="../../plugins/tempusdominus-bootstrap-4/css/tempusdominus-bootstrap-4.min.css">
   <!-- iCheck -->
-  <link rel="stylesheet" href="plugins/icheck-bootstrap/icheck-bootstrap.min.css">
+  <link rel="stylesheet" href="../../plugins/icheck-bootstrap/icheck-bootstrap.min.css">
   <!-- JQVMap -->
-  <link rel="stylesheet" href="plugins/jqvmap/jqvmap.min.css">
+  <link rel="stylesheet" href="../../plugins/jqvmap/jqvmap.min.css">
   <!-- Theme style -->
-  <link rel="stylesheet" href="dist/css/adminlte.min.css">
+  <link rel="stylesheet" href="../../dist/css/adminlte.min.css">
   <!-- overlayScrollbars -->
-  <link rel="stylesheet" href="plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
+  <link rel="stylesheet" href="../../plugins/overlayScrollbars/css/OverlayScrollbars.min.css">
   <!-- Daterange picker -->
-  <link rel="stylesheet" href="plugins/daterangepicker/daterangepicker.css">
+  <link rel="stylesheet" href="../../plugins/daterangepicker/daterangepicker.css">
   <!-- summernote -->
-  <link rel="stylesheet" href="plugins/summernote/summernote-bs4.min.css">
+  <link rel="stylesheet" href="../../plugins/summernote/summernote-bs4.min.css">
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <div class="wrapper">
 
   <!-- Preloader -->
   <div class="preloader flex-column justify-content-center align-items-center">
-    <img class="animation__shake" src="dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
+    <img class="animation__shake" src="../../dist/img/AdminLTELogo.png" alt="AdminLTELogo" height="60" width="60">
   </div>
 
   <!-- Navbar -->
@@ -79,7 +73,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+              <img src="../dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Brad Diesel
@@ -95,7 +89,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="../dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   John Pierce
@@ -111,7 +105,7 @@
           <a href="#" class="dropdown-item">
             <!-- Message Start -->
             <div class="media">
-              <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+              <img src="../../dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
               <div class="media-body">
                 <h3 class="dropdown-item-title">
                   Nora Silvester
@@ -172,10 +166,9 @@
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="homeAgent.jsp" class="brand-link">
-      <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+      <img src="../../dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
       <span class="brand-text font-weight-light"><% HttpSession sessio = request.getSession(); %>
-         <%= sessio.getAttribute("agence") %>
-         </span>
+         <%= sessio.getAttribute("agence") %></span>
     </a>
 
     <!-- Sidebar -->
@@ -183,13 +176,12 @@
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
         <div class="image">
-          <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          <img src="../../dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-        <a href="#" class="d-block">
-         <%= sessio.getAttribute("nom") %>
+          <a href="#" class="d-block">
+          <%= sessio.getAttribute("nom") %>
          <%= sessio.getAttribute("prenom") %></a>
-        
         </div>
       </div>
 
@@ -207,7 +199,6 @@
 
       <!-- Sidebar Menu -->
       <nav class="mt-2">
-      <p:if test="${sessionScope['role']=='agent'}">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
           <!-- Add icons to the links using the .nav-icon class
                with font-awesome or any other icon font library -->
@@ -221,19 +212,19 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="viewClient/operation/Verification1.jsp" class="nav-link active">
+                <a href="verification.jsp" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
                   <p>DEPOT</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="viewClient/operation/Verification2.jsp" class="nav-link">
+                <a href="Verification2.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>RETRAIT</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="viewClient/operation/Verification3.jsp" class="nav-link">
+                <a href="Verification3.jsp" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>VIREMENT</p>
                 </a>
@@ -267,115 +258,6 @@
           </li>
 
         </ul>
-        </p:if>
-       <p:if test="${sessionScope['role']=='admin'}">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                Gestion des Agents
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<%= request.getContextPath() %>/templates/viewClient" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>
-                  Liste des agents
-                  </p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="verification.jsp" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>
-                  </p>Liste des Clients
-                  
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="verification.jsp" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Liste des operations</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          
-        </ul>
-        </p:if>
-        <p:if test="${sessionScope['role']=='superadmin'}">
-        <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
-          <!-- Add icons to the links using the .nav-icon class
-               with font-awesome or any other icon font library -->
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link active">
-              <i class="nav-icon fas fa-tachometer-alt"></i>
-              <p>
-                OPERATIONS
-                <i class="right fas fa-angle-left"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="verification.jsp" class="nav-link active">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p></p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="verification.jsp" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p></p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="verification.jsp" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p></p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item menu-open">
-            <a href="#" class="nav-link">
-              <i class="nav-icon fas fa-table"></i>
-              <p>
-                GESTION DES CLIENTS
-                <i class="fas fa-angle-left right"></i>
-              </p>
-            </a>
-            <ul class="nav nav-treeview">
-              <li class="nav-item">
-                <a href="<%= request.getContextPath() %>/templates/viewClient" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>COMPTE ACTIVE</p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="listeclientDesactive.jsp" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>COMPTE DESACTIVE</p>
-                </a>
-              </li>
-            </ul>
-          </li>
-          <li class="nav-item">
-            <a href="operation.jsp" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
-              <p>
-                TRANSACTIONS
-              </p>
-            </a>
-          </li>
-
-        </ul>
-        </p:if>
-        
       </nav>
       <!-- /.sidebar-menu -->
     </div>

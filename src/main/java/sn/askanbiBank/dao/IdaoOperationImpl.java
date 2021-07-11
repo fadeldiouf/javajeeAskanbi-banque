@@ -60,7 +60,7 @@ public class IdaoOperationImpl implements IdaoOperation {
 		// TODO Auto-generated method stub
 		int idtype=2;
 		String sql1="UPDATE compte SET solde=? WHERE num_compte=?";
-		String sql2="INSERT INTO operation (idagent,idtype,idcompte,dateoperation,credit)  VALUES(?,?,?,?,?)";
+		String sql2="INSERT INTO operation (idagent,idtype,idcompte,dateoperation,debite)  VALUES(?,?,?,?,?)";
 		try {
 			con.setAutoCommit(false); 
 			pst=con.prepareStatement(sql1);
