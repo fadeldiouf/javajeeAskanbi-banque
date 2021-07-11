@@ -70,6 +70,29 @@ public class TransactionController extends HttpServlet {
 				}
 				
 		    }
+		    
+		    else if  (verify.equals("verif0")) {
+		    	HttpSession session= request.getSession();
+				HttpSession session1= request.getSession();
+				HttpSession session2= request.getSession();
+				HttpSession session3= request.getSession();
+				HttpSession session4= request.getSession();
+		    	Long num_compte= Long.parseLong(request.getParameter("num_compte"));
+				Compte c= idaocompte.verification(num_compte);
+				if(c != null) {
+					String nom= c.getClient().getNom();
+					String prenom= c.getClient().getPrenom();
+					Double solde= c.getSolde();
+					int idcompte= c.getIdcompte();
+					session.setAttribute("num_compte", num_compte);
+					session1.setAttribute("nom", nom);
+					session2.setAttribute("prenom", prenom);
+					session4.setAttribute("solde", solde);
+					session3.setAttribute("idcompte", idcompte);
+				    request.getRequestDispatcher("Depot.jsp").forward(request, response);
+				}
+				
+		    }
 			else if(verify.equals("verif3")) {
 				request.getRequestDispatcher("Verification4.jsp").forward(request, response);
 			}
@@ -115,6 +138,29 @@ public class TransactionController extends HttpServlet {
 				op.setCompte(compte2);
 				op.setDebite(debite);
 				idaoop.saveOperationRet(op, compte, num_debite);	
+			}
+		    
+			else if(verify.equals("depotmontant")) {
+				HttpSession depot1= request.getSession();
+				HttpSession depot2= request.getSession();
+				HttpSession depot3= request.getSession();
+				HttpSession depot4= request.getSession();
+				Operation opp= new Operation();
+				Compte compt= new Compte();
+				Compte compt2= new Compte();
+				Agent agent = new Agent();
+				Double balance= Double.parseDouble(depot1.getAttribute("solde").toString());
+				Long num_credit=Long.parseLong(depot2.getAttribute("num_compte").toString());
+				agent.setIdagent(Integer.parseInt(depot3.getAttribute("ID").toString())); 
+				compt2.setIdcompte(Integer.parseInt(depot4.getAttribute("idcompte").toString()));
+				Double credit= Double.parseDouble(request.getParameter("credit").toString());
+				Double solde= balance + credit;
+				compt.setSolde(solde);
+				compt.setNum_compte(num_credit);
+				opp.setAgent(agent);
+				opp.setCompte(compt2);
+				opp.setCredit(credit);
+				idaoop.saveOperationDpt(opp, compt, num_credit);	
 			}
 			else if(verify.equals("virement")) {
 				HttpSession virement1= request.getSession();

@@ -19,8 +19,38 @@ public class IdaoOperationImpl implements IdaoOperation {
 
 
 	@Override
-	public void saveOperationDpt(Operation o,Compte c, Long num_credite, Double montant) {
+	public void saveOperationDpt(Operation o,Compte c, Long num_credite) {
 		// TODO Auto-generated method stub
+		
+		int idtype=1;
+		String sql1="UPDATE compte SET solde=? WHERE num_compte=?";
+		String sql2="INSERT INTO operation (idagent,idtype,idcompte,dateoperation,credit)  VALUES(?,?,?,?,?)";
+		try {
+			con.setAutoCommit(false); 
+			pst=con.prepareStatement(sql1);
+			pst.setDouble(1,c.getSolde() );
+			pst.setLong(2, c.getNum_compte());
+			pst.executeUpdate();
+			pst.close(); 
+			
+			pst2=con.prepareStatement(sql2);
+			pst2.setInt(1, o.getAgent().getIdagent());
+			pst2.setInt(2, idtype);
+			pst2.setInt(3, o.getCompte().getIdcompte());
+			pst2.setDate(4, new java.sql.Date(System.currentTimeMillis()));
+			pst2.setDouble(5, o.getCredit());
+			pst2.executeUpdate();
+			pst2.close(); 
+			con.commit();
+		  System.out.println("operation faite avec success");
+		  {
+			 con.rollback(); 
+		  }
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 		
 		
 	}
