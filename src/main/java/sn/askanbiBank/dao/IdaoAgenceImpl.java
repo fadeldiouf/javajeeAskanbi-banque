@@ -159,8 +159,34 @@ public class IdaoAgenceImpl implements IdaoAgence {
 
 	@Override
 	public List<Operation> listeOperations() {
-		// TODO Auto-generated method stub
-		return null;
+		List<Operation> liste = new ArrayList<>();
+		String sql="SELECT g.idagence, a.idagent, idoperation,o.idcompte,num_compte,dateoperation,credit,debite,envoie,recue,t.typeoperation from agence g, agent a, operation o,\r\n"
+				+ "     compte c ,type t where o.idtype=t.idtype\r\n"
+				+ "     and g.idagence=a.idagence and a.idagent=o.idagent and o.idcompte=c.idcompte order by dateoperation desc";
+		try {
+			pst=con.prepareStatement(sql);
+			rs=pst.executeQuery();
+			while(rs.next()) {
+				Operation o =new Operation();
+			o.getAgent().getAgence().setIdagence(rs.getInt("idagence"));
+			o.getAgent().setIdagent(rs.getInt("idagent"));
+			o.setIdoperation(rs.getInt("idoperation"));
+			o.getCompte().setIdcompte(rs.getInt("idcompte"));
+			o.getCompte().setNum_compte(rs.getLong("num_compte"));
+			o.setDateoperation(rs.getDate("dateoperation"));
+			o.setCredit(rs.getDouble("credit"));
+			o.setDebite(rs.getDouble("debite"));
+			o.setEnvoie(rs.getDouble("envoie"));
+			o.setRecue(rs.getDouble("recue"));
+			o.getTypeoperation().setTypeoperation(rs.getString("typeoperation"));
+			liste.add(o);
+			}
+			
+			pst.close(); 
+		} catch (Exception e) {
+			
+		}
+		return liste;
 	}
 
 }

@@ -3,6 +3,7 @@ package sn.askanbiBank.dao;
 
 import java.util.List;
 
+import sn.askanbiBank.domaine.Agence;
 import sn.askanbiBank.domaine.Client;
 import sn.askanbiBank.domaine.Compte;
 import sn.askanbiBank.domaine.Operation;
@@ -18,24 +19,37 @@ public class Test {
 //	      
 		
 		IdaoOperation metier= new IdaoOperationImpl();
+		IdaoAgence agence = new IdaoAgenceImpl();
 		// TODO Auto-generated method stub
-        List<Operation> test= metier.listopagent(1); 
-        for(Operation c: test) {
-        	System.out.println(c.getIdoperation());
-        	System.out.println( c.getCompte().getIdcompte());
-        	System.out.println(c.getCompte().getNum_compte());
-        	System.out.println(c.getDateoperation());
-        	System.out.println(c.getCredit());
-        	System.out.println(c.getDebite());
-        	System.out.println(c.getEnvoie());
-        	System.out.println(c.getRecue());
-        	System.out.println(c.getTypeoperation().getTypeoperation());
-        	
-        	
-        	
-
-        }
+//          List<Operation> test= metier.listopagent(1); 
+//          for(Operation c: test) {
+//        	System.out.println(c.getIdoperation());
+//        	System.out.println( c.getCompte().getIdcompte());
+//        	System.out.println(c.getCompte().getNum_compte());
+//        	System.out.println(c.getDateoperation());
+//        	System.out.println(c.getCredit());
+//        	System.out.println(c.getDebite());
+//        	System.out.println(c.getEnvoie());
+//        	System.out.println(c.getRecue());
+//        	System.out.println(c.getTypeoperation().getTypeoperation());
+//        	
+//        	
+//        	
+//
+//        }
+		List<Agence> test=agence.liste();
+		for(Agence a:test) {
+			System.out.println(a.getAdresse());	
+		}
+		List<Operation> test2=agence.listeOperations();
+		for(Operation a:test2) {
+			System.out.println(a.getIdoperation());
+			System.out.println(a.getAgent().getAgence().getIdagence());
+			System.out.println(a.getAgent().getIdagent());
+			System.out.println(a.getAgent().getCni());
+		}
 	}
+	
 }
 //        System.out.println("=======================");
 //        Compte c = metier.getByID(86);

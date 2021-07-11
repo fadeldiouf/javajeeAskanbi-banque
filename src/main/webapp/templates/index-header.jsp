@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Space Agent | Dashboard</title>
+  <title>Accueil</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -316,7 +316,7 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                OPERATIONS
+                Gestion Agences
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
@@ -324,19 +324,13 @@
               <li class="nav-item">
                 <a href="verification.jsp" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p></p>
+                  <p>Liste des Nouveaux</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="verification.jsp" class="nav-link">
+                <a href="<%= request.getContextPath() %>/templates/viewSiege?action=listeagence" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p></p>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="verification.jsp" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p></p>
+                  <p>Liste des Agences</p>
                 </a>
               </li>
             </ul>
@@ -345,34 +339,41 @@
             <a href="#" class="nav-link">
               <i class="nav-icon fas fa-table"></i>
               <p>
-                GESTION DES CLIENTS
+                GESTION DES Agents
                 <i class="fas fa-angle-left right"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<%= request.getContextPath() %>/templates/viewClient" class="nav-link">
+                <a href="<%= request.getContextPath() %>/templates/viewSiege?action=listeagent" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>COMPTE ACTIVE</p>
+                  <p>Liste des Agents</p>
                 </a>
-              </li>
-              <li class="nav-item">
-                <a href="listeclientDesactive.jsp" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>COMPTE DESACTIVE</p>
-                </a>
-              </li>
             </ul>
           </li>
-          <li class="nav-item">
-            <a href="operation.jsp" class="nav-link">
-              <i class="nav-icon fas fa-columns"></i>
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
               <p>
-                TRANSACTIONS
+                GESTION DES Clients
+                <i class="fas fa-angle-left right"></i>
               </p>
             </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<%= request.getContextPath() %>/templates/viewSiege?action=listeclient" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Liste des Cleints</p>
+                </a>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<%= request.getContextPath() %>/templates/viewSiege?action=listeoperation" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Liste des Operations</p>
+                </a>
+            </ul>
           </li>
-
         </ul>
         </p:if>
         
