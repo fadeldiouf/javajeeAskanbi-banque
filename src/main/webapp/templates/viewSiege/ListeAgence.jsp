@@ -77,7 +77,7 @@
                   <thead>
                   <tr>
                     <th>Id</th>
-                    <th>Admin</th>
+                   
                     <th>Nom</th>
                     <th>Addresse</th>
                     <th>Date</th>
@@ -90,7 +90,6 @@
                   <tbody>
                   <c:forEach items="${modelagence.agences}" var="c">
                   <tr>
-                    <th>${c.idagence}</th>
                     <th>${c.idagence}</th>
                     <th>${c.nomagence}</th>
                     <th>${c.adresse}</th>
@@ -113,7 +112,6 @@
                   <tfoot>
                   <tr>
                     <th>Id</th>
-                    <th>Admin</th>
                     <th>Nom</th>
                     <th>Addresse</th>
                     <th>Date</th>

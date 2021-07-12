@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Space Agent | Dashboard</title>
+  <title>Acceuil Agence</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -209,53 +209,64 @@
             <a href="#" class="nav-link active">
               <i class="nav-icon fas fa-tachometer-alt"></i>
               <p>
-                Gestion des Agence
+                Gestion Agences
                 <i class="right fas fa-angle-left"></i>
               </p>
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="<%= request.getContextPath() %>/templates/viewSiege/" class="nav-link">
+                <a href="verification.jsp" class="nav-link active">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>
-                  Liste des agence
-                  </p>
+                  <p>Liste des Nouveaux</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="verification.jsp" class="nav-link">
+                <a href="<%= request.getContextPath() %>/templates/viewSiege?action=listeagence" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>
-                  </p>Ajouter agence
-                  
+                  <p>Liste des Agences</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="verification.jsp" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>
-                  </p>Liste des agents
-                  
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="verification.jsp" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>
-                  </p>Liste des Clients
-                  
-                </a>
-              </li>
-              <li class="nav-item">
-                <a href="verification.jsp" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>Liste des operations</p>
-                </a>
-              </li>
-             
             </ul>
           </li>
-          
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                GESTION DES Agents
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<%= request.getContextPath() %>/templates/viewSiege?action=listeagent" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Liste des Agents</p>
+                </a>
+            </ul>
+          </li>
+          <li class="nav-item menu-open">
+            <a href="#" class="nav-link">
+              <i class="nav-icon fas fa-table"></i>
+              <p>
+                GESTION DES Clients
+                <i class="fas fa-angle-left right"></i>
+              </p>
+            </a>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<%= request.getContextPath() %>/templates/viewSiege?action=listeclient" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Liste des Clients</p>
+                </a>
+            </ul>
+            <ul class="nav nav-treeview">
+              <li class="nav-item">
+                <a href="<%= request.getContextPath() %>/templates/viewSiege?action=listeoperation" class="nav-link">
+                  <i class="far fa-circle nav-icon"></i>
+                  <p>Liste des Operations</p>
+                </a>
+            </ul>
+          </li>
         </ul>
       </nav>
       <!-- /.sidebar-menu -->

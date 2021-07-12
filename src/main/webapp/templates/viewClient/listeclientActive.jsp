@@ -1,4 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="th"%>
 <%@ include file="index-header.jsp"%>
 <%@ include file="index-footer.jsp"%>
 <!DOCTYPE html>
@@ -52,12 +53,6 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-             <td>
-              <a href="ajouterClient.jsp">
-              <button type="button" class="btn btn-block btn-primary">Nouveau client</button>
-              </a>
-             </td>
-
             </ol>
           </div>
         </div>
@@ -83,7 +78,6 @@
                     <th>Telephone</th>
                     <th>Email</th>
                     <th>Cni</th>
-                    <th>Status</th>
                     <th>Actions</th>
                   </tr>
                   </thead>
@@ -97,12 +91,28 @@
                     <th>${c.client.telephone}</th>
                     <th>${c.client.email}</th>
                     <th>${c.client.cni}</th>
-                    <th>${c.active}</th>
+                   
                     <th> 
+                     
+                               <c:if test="${c.active == false}">
+                                <a href="<%= request.getContextPath() %>/templates/viewClient?action=activer&id=${c.idcompte}"
+                               id="modif"
+                               onChange="document.getElementById('modif').style.display='block'"
+                               class="btn btn-success"><i class="fa fa-fw fa-thumbs-o-up"></i>Active</a>
+                               </c:if>
+                             
+               
+                          <c:if test="${c.active == true}">
+                                <a href="<%= request.getContextPath() %>/templates/viewClient?action=desactiver&id=${c.idcompte}" 
+                               id="modif" onChange="document.getElementById('modif').style.display='block'"
+                           class="btn btn-danger"><i class="fa fa-fw fa-thumbs-o-down"></i>Desac</a>
+		                </c:if>
+	
                      <a href="<%= request.getContextPath() %>/templates/viewClient?action=detail&id=${c.client.idclient}"class="btn btn-info btn-sm">
                      <i class="fa fa-eye"></i></a>
                      <a href="<%= request.getContextPath() %>/templates/viewClient?action=editer&id=${c.client.idclient}" class="btn btn-primary btn-sm">  
-                     <i class="fas fa-edit" ></i></a>                  
+                     <i class="fas fa-edit" ></i></a>  
+                                     
                     </th>
                   </tr>
                   </c:forEach>
@@ -116,7 +126,6 @@
                     <th>Telephone</th>
                     <th>Email</th>
                     <th>Cni</th>
-                    <th>Status</th>
                     <th>Actions</th>
                   </tr>                 
                   </tfoot>

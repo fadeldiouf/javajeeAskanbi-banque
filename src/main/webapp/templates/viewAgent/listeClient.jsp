@@ -1,4 +1,5 @@
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="th"%>
 <%@ include file="index-header.jsp"%>
 <%@ include file="index-footer.jsp"%>
 <!DOCTYPE html>
@@ -52,7 +53,6 @@
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-             
 
             </ol>
           </div>
@@ -72,6 +72,7 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
+                    <th>ID</th>
                     <th>Nom</th>
                     <th>Prenom</th>
                     <th>Addresse</th>
@@ -80,12 +81,12 @@
                     <th>Email</th>
                     <th>Cni</th>
                     <th>Status</th>
-                    <th>Actions</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <c:forEach items="${model.comptes}" var="c">
+                  <c:forEach items="${modelclient.comptes}" var="c">
                   <tr>
+                    <th>${c.client.idclient}</th>
                     <th>${c.client.nom}</th>
                     <th>${c.client.prenom}</th>
                     <th>${c.client.adresse}</th>
@@ -94,15 +95,12 @@
                     <th>${c.client.email}</th>
                     <th>${c.client.cni}</th>
                     <th>${c.active}</th>
-                    <th> 
-                     <a href="<%= request.getContextPath() %>/templates/viewClient?action=detail&id=${c.client.idclient}"class="btn btn-info btn-sm">
-                     <i class="fa fa-eye"></i></a>                 
-                    </th>
                   </tr>
                   </c:forEach>
                   </tbody>
                   <tfoot>
                   <tr>
+                    <th>ID</th>
                     <th>Nom</th>
                     <th>Prenom</th>
                     <th>Addresse</th>
@@ -111,7 +109,6 @@
                     <th>Email</th>
                     <th>Cni</th>
                     <th>Status</th>
-                    <th>Actions</th>
                   </tr>                 
                   </tfoot>
                 </table>

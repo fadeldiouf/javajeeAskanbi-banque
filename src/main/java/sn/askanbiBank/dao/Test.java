@@ -3,11 +3,9 @@ package sn.askanbiBank.dao;
 
 import java.util.List;
 
-<<<<<<< HEAD
+import jdk.internal.agent.resources.agent;
 import sn.askanbiBank.domaine.Agence;
-=======
 import sn.askanbiBank.domaine.Agent;
->>>>>>> c565c87d9e3455a2a613d931d81c744221879138
 import sn.askanbiBank.domaine.Client;
 import sn.askanbiBank.domaine.Compte;
 import sn.askanbiBank.domaine.Operation;
@@ -17,14 +15,22 @@ public class Test {
 
 	public static void main(String[] args) {
 //		IdaoClient metier  = new IdaoClientImpl();
-//		IdaoUser lister= new IdaoUserImpl();
+	   IdaoUser user= new IdaoUserImpl();
 //      ?
 //		
 //	      
 		
-<<<<<<< HEAD
 		IdaoOperation metier= new IdaoOperationImpl();
 		IdaoAgence agence = new IdaoAgenceImpl();
+		IdaoAddAgent agent= new IdaoAddAgentImpl();
+		
+
+//        System.out.println("=======================");
+//        Agent c= agent.getByID(1);
+//        User u= user.getByID(1);
+//        
+//        c.getAgence().setIdagence(2);
+//        agence.designeradmin(c,u);
 		// TODO Auto-generated method stub
 //          List<Operation> test= metier.listopagent(1); 
 //          for(Operation c: test) {
@@ -41,43 +47,48 @@ public class Test {
 //        	
 //        	
 //
-//        }
-		List<Agence> test=agence.liste();
+////        }
+		List<Agence> test=agence.sansadmin();
 		for(Agence a:test) {
-			System.out.println(a.getAdresse());	
+			System.out.println(a.getIdagence());	
 		}
-		List<Operation> test2=agence.listeOperations();
-		for(Operation a:test2) {
-			System.out.println(a.getIdoperation());
-			System.out.println(a.getAgent().getAgence().getIdagence());
-			System.out.println(a.getAgent().getIdagent());
-			System.out.println(a.getAgent().getCni());
-		}
-=======
-		IdaoAddAgent metier= new IdaoAddAgentImpl();
-		// TODO Auto-generated method stub
-        List<User> test= metier.listUser(1); 
-        for(User c: test) {
-        	System.out.println(c.getAgent().getIdagent());
-        	System.out.println(c.getAgent().getNom());
-        	System.out.println(c.getAgent().getPrenom());
-        	System.out.println(c.getAgent().getAdresse());
-        	System.out.println(c.getAgent().getTelephone());
-        	System.out.println(c.getAgent().getGenre());
-        	System.out.println(c.getAgent().getCivilite());
-        	System.out.println(c.getAgent().getCni());
-        	System.out.println(c.getUsername());
-        	System.out.println(c.getPassword());
-        	
-        	
-        	
-        	
+//		List<Operation> test2=metier.listopagence(1);
+//		for(Operation a:test2) {
+//			System.out.println(a.getIdoperation());
+//			System.out.println(a.getAgent().getIdagent());
+//			
+//		}
+//		List<User> test3=agence.listeAgent();
+//		for(User a:test3) {
+//			System.out.println(a.getAgent().getIdagent());
+//			System.out.println(a.getAgent().getNom());
+//			System.out.println(a.getAgent().getCni());
+//			System.out.println(a.getUsername());
+//		}
+//		IdaoAddAgent metier= new IdaoAddAgentImpl();
+//		// TODO Auto-generated method stub
+//        List<User> test= metier.listUser(1); 
+//        for(User c: test) {
+//        	System.out.println(c.getAgent().getIdagent());
+//        	System.out.println(c.getAgent().getNom());
+//        	System.out.println(c.getAgent().getPrenom());
+//        	System.out.println(c.getAgent().getAdresse());
+//        	System.out.println(c.getAgent().getTelephone());
+//        	System.out.println(c.getAgent().getGenre());
+//        	System.out.println(c.getAgent().getCivilite());
+//        	System.out.println(c.getAgent().getCni());
+//        	System.out.println(c.getUsername());
+//        	System.out.println(c.getPassword());
+//        	
+//        	
+//        	
+//        	
+//
+//        }
 
-        }
->>>>>>> c565c87d9e3455a2a613d931d81c744221879138
 	}
 	
-}
+
 //        System.out.println("=======================");
 //        Compte c = metier.getByID(86);
 //        System.out.println(c.getClient().getNom());
@@ -111,13 +122,7 @@ public class Test {
 //    	System.out.println(c.getIdcompte());
     	
     	
-//	}
-//        System.out.println("=======================");
-//        Client c= metier.getByID(83);
-//        c.setNom("fayef");
-//        c.setPrenom("mbaye");
-//        c.setEmail("diouf@@@@@@@@@");
-//        metier.update(c);
+}
 //        Client c2=metier.getByID(79);
 //        System.out.println(c2.getIdclient());
 //        System.out.println(c2.getNom());

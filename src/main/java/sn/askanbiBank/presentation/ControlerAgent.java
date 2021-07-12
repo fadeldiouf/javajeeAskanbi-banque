@@ -14,10 +14,18 @@ import sn.askanbiBank.dao.IdaoAddAgent;
 import sn.askanbiBank.dao.IdaoAddAgentImpl;
 import sn.askanbiBank.dao.IdaoAgent;
 import sn.askanbiBank.dao.IdaoAgentImpl;
+import sn.askanbiBank.dao.IdaoCompte;
+import sn.askanbiBank.dao.IdaoCompteImpl;
+import sn.askanbiBank.dao.IdaoOperation;
+import sn.askanbiBank.dao.IdaoOperationImpl;
 import sn.askanbiBank.domaine.Agence;
 import sn.askanbiBank.domaine.Agent;
+import sn.askanbiBank.domaine.Compte;
+import sn.askanbiBank.domaine.Operation;
 import sn.askanbiBank.domaine.User;
 import sn.askanbiBank.model.AgentModel;
+import sn.askanbiBank.model.ClientModel;
+import sn.askanbiBank.model.OperationModel;
 
 /**
  * @author NIANG
@@ -33,11 +41,17 @@ public class ControlerAgent extends HttpServlet {
 	private IdaoAgent metier;
 	private IdaoAgent listeuser;
 	private IdaoAddAgent dao;
+	private IdaoCompte listerclient;
+	private IdaoOperation idaoop;
+	private OperationModel model1;
 	
 	public void init() throws ServletException {
 		metier= new IdaoAgentImpl();
 		dao= new IdaoAddAgentImpl();
 		listeuser= new IdaoAgentImpl();
+		listerclient= new IdaoCompteImpl();
+		idaoop= new IdaoOperationImpl();
+		model1= new OperationModel();
 	}
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -106,7 +120,7 @@ public class ControlerAgent extends HttpServlet {
 					  e.printStackTrace();
 				}
 			request.getRequestDispatcher("listeAgent.jsp").forward(request, response);
-			}
+			} 
 			else if(action.equals("detail")) {
 				int id= Integer.parseInt(request.getParameter("id"));
 				Agent a= listeuser.getByID(id);
@@ -114,6 +128,27 @@ public class ControlerAgent extends HttpServlet {
 //				request.setAttribute("model",model);
 				request.getRequestDispatcher("DetailAgent.jsp").forward(request, response);
 			}
+			else if(action.equals("listeclient")) {
+				ClientModel modelclient = new ClientModel();
+				HttpSession sessionclient = request.getSession();
+				int idagenc =Integer.parseInt(sessionclient.getAttribute("id_agence").toString());
+				List<Compte> comptes= listerclient.listeparagence(idagenc);
+				modelclient.setComptes(comptes);
+				request.setAttribute("modelclient",modelclient);
+				request.getRequestDispatcher("listeClient.jsp").forward(request, response);
+			}
+			else if(action.equals("listeoperation")) {
+				HttpSession opsession1 = request.getSession();
+				int idagence1 =Integer.parseInt(opsession1.getAttribute("id_agence").toString());
+				List<Operation> operations=idaoop.listopagence(idagence1);
+				model1.setOperations(operations);
+				request.setAttribute("model1", model1);
+				request.getRequestDispatcher("Listeoperation.jsp").forward(request, response);
+				
+			}
+			
+			
+			
 		}
 		else {
 			request.getRequestDispatcher("listeAgent.jsp").forward(request, response);

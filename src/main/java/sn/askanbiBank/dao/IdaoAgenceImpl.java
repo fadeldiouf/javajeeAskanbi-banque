@@ -10,14 +10,14 @@ import java.util.List;
 
 import sn.askanbiBank.domaine.Agence;
 import sn.askanbiBank.domaine.Agent;
-import sn.askanbiBank.domaine.Client;
 import sn.askanbiBank.domaine.Compte;
 import sn.askanbiBank.domaine.Operation;
+import sn.askanbiBank.domaine.User;
 import sn.askanbiBank.utilis.SingletonConnection;
 
 public class IdaoAgenceImpl implements IdaoAgence {
 	Connection con= SingletonConnection.getConnection();
-    PreparedStatement pst;
+    PreparedStatement pst,pst2;
     Statement stmt;
     ResultSet rs;
 
@@ -39,7 +39,7 @@ public class IdaoAgenceImpl implements IdaoAgence {
 	      }
 	}
 
-		
+    	
 
 	@Override
 	public List<Agence> liste() {
@@ -62,7 +62,8 @@ public class IdaoAgenceImpl implements IdaoAgence {
 		} catch (Exception e) {
 			
 		}
-		return liste;	}
+		return liste;	
+	}
 
 	@Override
 	public void update(Agence t) {
@@ -152,9 +153,35 @@ public class IdaoAgenceImpl implements IdaoAgence {
 	}
 
 	@Override
-	public List<Agent> listeAgent() {
+	public List<User> listeAgent() {
 		// TODO Auto-generated method stub
-		return null;
+		List<User> listUser = new ArrayList<>();
+		String sql="SELECT * FROM agent,user    WHERE  user.idagent=agent.idagent  group by agent.idagent desc";
+			try {
+				pst=con.prepareStatement(sql);
+				rs=pst.executeQuery();
+				while(rs.next()) {
+				User c= new User();
+				c.getAgent().setIdagent(rs.getInt("idagent"));
+				c.getAgent().setNom(rs.getString("nom"));
+				c.getAgent().setPrenom(rs.getString("prenom"));
+				c.getAgent().setAdresse(rs.getString("adresse"));
+				c.getAgent().setDatenaissance(rs.getString("datenaissance"));
+				c.getAgent().setTelephone(rs.getString("telephone"));
+				c.getAgent().setEmail(rs.getString("email"));
+				c.getAgent().setGenre(rs.getString("genre"));
+				c.getAgent().setCivilite(rs.getString("civilite"));
+				c.getAgent().setCni(rs.getString("cni"));
+				c.setUsername(rs.getString("username"));
+				c.setPassword(rs.getString("password"));
+				c.getRole().setIdrole(rs.getInt("idrole"));
+				listUser.add(c);
+				}
+				pst.close(); 
+		} catch (Exception e) {
+			
+		}
+		return listUser;
 	}
 
 	@Override
@@ -182,6 +209,65 @@ public class IdaoAgenceImpl implements IdaoAgence {
 			liste.add(o);
 			}
 			
+			pst.close(); 
+		} catch (Exception e) {
+			
+		}
+		return liste;
+	}
+
+
+
+	@Override
+	public void designeradmin(Agent t,User u) {
+		int idrole=2;
+		String sql1=" UPDATE agent SET idagence=? where idagent=? ";
+		String sql2= "UPDATE user SET idrole=? where idagent=?";
+		try {
+			con.setAutoCommit(false); 
+			pst=con.prepareStatement(sql1);
+			pst.setInt(1,t.getAgence().getIdagence());
+			pst.setInt(2, t.getIdagent());
+			pst.executeUpdate();
+			pst.close(); 
+			
+			pst2=con.prepareStatement(sql2);
+			pst2.setInt(1, idrole);
+			pst2.setInt(2, u.getAgent().getIdagent());
+			pst2.executeUpdate();
+			pst2.close(); 
+			con.commit();
+		  System.out.println("operation faite avec success");
+		  {
+			 con.rollback(); 
+		  }
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public List<Agence> sansadmin() {
+		
+		List<Agence> liste = new ArrayList<Agence>();
+		String sql = "SELECT* from agence where idagence not in"
+				+ "(select idagence from agent where idagent in(select idagent from user where idrole=2))";
+		try {
+			pst=con.prepareStatement(sql);
+			rs=pst.executeQuery();
+			while(rs.next()) {
+				Agence a = new Agence();
+			a.setIdagence(rs.getInt("idagence"));
+			a.setNomagence(rs.getString("nomagence"));
+			a.setAdresse(rs.getString("adresse"));
+			a.setDatecreation(rs.getDate("datecreation"));
+			a.setTelephone(rs.getString("telephone"));
+			a.setEmail(rs.getString("email"));
+			liste.add(a);
+			}
 			pst.close(); 
 		} catch (Exception e) {
 			

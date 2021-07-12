@@ -166,6 +166,37 @@ public class IdaoOperationImpl implements IdaoOperation {
 			
 		}
 		return listopagent;
-	}	
+	}
+
+	@Override
+	public List<Operation> listopagence(int idagence) {
+		List<Operation> listopagence= new ArrayList<>();
+		String sql="SELECT a.idagent,idoperation,o.idcompte,num_compte,dateoperation,credit,debite,envoie,recue,t.typeoperation from agent a, operation o,\r\n"
+				+ "         compte c,type t where o.idtype=t.idtype\r\n"
+				+ "         and a.idagent=o.idagent and o.idcompte=c.idcompte and  idagence=? order by dateoperation desc";
+		try {
+			pst=con.prepareStatement(sql);
+			pst.setInt(1, idagence);
+			rs=pst.executeQuery();
+			while(rs.next()) {
+		    Operation o =new Operation();
+		    o.getAgent().setIdagent(rs.getInt("idagent"));
+			o.setIdoperation(rs.getInt("idoperation"));
+			o.getCompte().setIdcompte(rs.getInt("idcompte"));
+			o.getCompte().setNum_compte(rs.getLong("num_compte"));
+			o.setDateoperation(rs.getDate("dateoperation"));
+			o.setCredit(rs.getDouble("credit"));
+			o.setDebite(rs.getDouble("debite"));
+			o.setEnvoie(rs.getDouble("envoie"));
+			o.setRecue(rs.getDouble("recue"));
+			o.getTypeoperation().setTypeoperation(rs.getString("typeoperation"));
+			listopagence.add(o);
+			}
+			
+			pst.close(); 
+		} catch (Exception e) {
+			
+		}
+		return listopagence;	}	
 
 }

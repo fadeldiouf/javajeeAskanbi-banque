@@ -120,6 +120,23 @@ public class ControlerClient extends HttpServlet {
 //				request.setAttribute("model",model);
 				request.getRequestDispatcher("DetailClient.jsp").forward(request, response);
 			}
+			else if(action.equals("activer")) {
+				int id= Integer.parseInt(request.getParameter("id"));
+				Compte c =listerclient.getById(id);
+				c.setActive(true);
+				listerclient.active(c);
+				request.getRequestDispatcher("listeclientActive.jsp").forward(request, response);
+				
+			}
+			else if(action.equals("desactiver")) {
+				int id= Integer.parseInt(request.getParameter("id"));
+				Compte c =listerclient.getById(id);
+				c.setActive(false);
+				listerclient.active(c);
+				request.getRequestDispatcher("listeclientActive.jsp").forward(request, response);
+				
+			}
+
 		}
 		else {
 			request.getRequestDispatcher("listeclientActive.jsp").forward(request, response);

@@ -94,8 +94,8 @@ public class TransactionController extends HttpServlet {
 					Double solde= c.getSolde();
 					int idcompte= c.getIdcompte();
 					session.setAttribute("num_compte", num_compte);
-					session1.setAttribute("nom", nom);
-					session2.setAttribute("prenom", prenom);
+					session1.setAttribute("nomCl2", nom);
+					session2.setAttribute("prenomCl2", prenom);
 					session4.setAttribute("solde", solde);
 					session3.setAttribute("idcompte", idcompte);
 				    request.getRequestDispatcher("Depot.jsp").forward(request, response);
@@ -175,6 +175,7 @@ public class TransactionController extends HttpServlet {
 				HttpSession depot2= request.getSession();
 				HttpSession depot3= request.getSession();
 				HttpSession depot4= request.getSession();
+				HttpSession depot5= request.getSession();
 				Operation opp= new Operation();
 				Compte compt= new Compte();
 				Compte compt2= new Compte();
@@ -185,12 +186,14 @@ public class TransactionController extends HttpServlet {
 				compt2.setIdcompte(Integer.parseInt(depot4.getAttribute("idcompte").toString()));
 				Double credit= Double.parseDouble(request.getParameter("credit").toString());
 				Double solde= balance + credit;
+				depot5.setAttribute("credit", credit);
 				compt.setSolde(solde);
 				compt.setNum_compte(num_credit);
 				opp.setAgent(agent);
 				opp.setCompte(compt2);
 				opp.setCredit(credit);
-				idaoop.saveOperationDpt(opp, compt, num_credit);	
+				idaoop.saveOperationDpt(opp, compt, num_credit);
+				request.getRequestDispatcher("FacDepot.jsp").forward(request, response);
 			}
 			else if(verify.equals("virement")) {
 				HttpSession virement1= request.getSession();

@@ -290,7 +290,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="verification.jsp" class="nav-link">
+                <a href="<%= request.getContextPath() %>/templates/viewAgent/?action=listeclient" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>
                   </p>Liste des Clients
@@ -298,7 +298,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="verification.jsp" class="nav-link">
+                <a href="<%= request.getContextPath() %>/templates/viewAgent/listeoperation" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Liste des operations</p>
                 </a>
@@ -363,7 +363,7 @@
               <li class="nav-item">
                 <a href="<%= request.getContextPath() %>/templates/viewSiege?action=listeclient" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
-                  <p>Liste des Cleints</p>
+                  <p>Liste des Clients</p>
                 </a>
             </ul>
             <ul class="nav nav-treeview">

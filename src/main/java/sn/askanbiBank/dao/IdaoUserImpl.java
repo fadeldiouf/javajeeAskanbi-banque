@@ -10,6 +10,7 @@ import java.util.List;
 
 import javax.servlet.http.HttpSession;
 
+import sn.askanbiBank.domaine.Agent;
 import sn.askanbiBank.domaine.User;
 import sn.askanbiBank.utilis.SingletonConnection;
 
@@ -102,8 +103,28 @@ public class IdaoUserImpl  implements IdaoUser {
 
 	@Override
 	public User getByID(int id) {
+		User t =  null;
+		String sql= "SELECT * FROM user WHERE idagent=? ";
+		try {
+			pst=con.prepareStatement(sql);
+			pst.setInt(1, id);
+			rs=pst.executeQuery();
+			if (rs.next()) {
+				t =  new User();
+				t.getRole().setIdrole(rs.getInt("idrole"));
+				t.getAgent().setIdagent(rs.getInt("idagent"));
+				t.setUsername(rs.getString("Username"));
+				t.setPassword(rs.getString("password"));	
+						
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		// TODO Auto-generated method stub
-		return null;
+		if(t==null) throw new RuntimeException("agent non trouvable");
+		return t  ;
+		
 	}
 
 

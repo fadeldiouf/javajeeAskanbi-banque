@@ -10,4 +10,5 @@ public interface IdaoOperation {
 	public void saveOperationRet(Operation o,Compte c,Long num_debite );
 	public void saveOperationVrmt(Operation o1,Operation o2,Compte c1, Compte c2 , Long num_envoie,Long num_recue );
 	public List<Operation> listopagent(int idagent);
+	public List<Operation> listopagence(int idagence);
 }

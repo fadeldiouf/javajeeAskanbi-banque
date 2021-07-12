@@ -223,7 +223,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="verification.jsp" class="nav-link">
+                <a href="<%= request.getContextPath() %>/templates/viewAgent/?action=listeclient" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>
                   </p>Liste des Clients
@@ -231,23 +231,14 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="verification.jsp" class="nav-link">
+                <a href="<%= request.getContextPath() %>/templates/viewAgent/?action=listeoperation" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Liste des operations</p>
                 </a>
               </li>
-              <li class="nav-item">
-                <a href="<%= request.getContextPath() %>/templates/viewAgent/ajouterAgent.jsp" class="nav-link">
-                  <i class="far fa-circle nav-icon"></i>
-                  <p>
-                  </p>Ajouter agent
-                  
-                </a>
-              </li>
             </ul>
           </li>
-          
-        </ul>
+          </ul>
       </nav>
       <!-- /.sidebar-menu -->
     </div>

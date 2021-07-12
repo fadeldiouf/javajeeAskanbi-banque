@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import sn.askanbiBank.domaine.Agent;
+import sn.askanbiBank.domaine.Client;
 import sn.askanbiBank.domaine.Compte;
 import sn.askanbiBank.domaine.User;
 import sn.askanbiBank.utilis.SingletonConnection;
@@ -18,7 +19,7 @@ public class IdaoAddAgentImpl implements IdaoAddAgent {
     PreparedStatement pst,pst2,pst3;
     Statement stmt;
     ResultSet rs;
-    Long idrole=2L;
+    Long idrole=3L;
     int len=10;
     
     
@@ -48,9 +49,35 @@ public class IdaoAddAgentImpl implements IdaoAddAgent {
 
 	@Override
 	public Agent getByID(int id) {
+		Agent t =  null;
+		String sql= "SELECT * FROM agent WHERE idagent=? ";
+		try {
+			pst=con.prepareStatement(sql);
+			pst.setInt(1, id);
+			rs=pst.executeQuery();
+			if (rs.next()) {
+				t =  new Agent();
+				t.setIdagent(rs.getInt("idagent"));
+				t.setNom(rs.getString("nom"));
+				t.setPrenom(rs.getString("prenom"));
+				t.setAdresse(rs.getString("adresse"));
+				t.setDatenaissance(rs.getString("datenaissance"));
+				t.setTelephone(rs.getString("telephone"));
+				t.setEmail(rs.getString("email"));
+				t.setGenre(rs.getString("genre"));
+				t.setCivilite(rs.getString("civilite"));
+				t.setCni(rs.getString("cni"));	
+						
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		// TODO Auto-generated method stub
-		return null;
+		if(t==null) throw new RuntimeException("client non trouvable");
+		return t  ;
 	}
+	
 
 	@Override
 	public void addAgent(Agent t,User u) {
@@ -119,6 +146,7 @@ public class IdaoAddAgentImpl implements IdaoAddAgent {
 				c.getAgent().setCni(rs.getString("cni"));
 				c.setUsername(rs.getString("username"));
 				c.setPassword(rs.getString("password"));
+				c.getRole().setIdrole(rs.getInt("idrole"));
 				listUser.add(c);
 				}
 				pst.close(); 

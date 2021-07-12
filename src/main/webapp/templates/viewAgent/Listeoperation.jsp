@@ -1,4 +1,4 @@
- <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ include file="index-header.jsp"%>
 <%@ include file="index-footer.jsp"%>
 <!DOCTYPE html>
@@ -6,7 +6,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Liste Agents</title>
+  <title>listeOperation</title>
 
   <!-- Google Font: Source Sans Pro -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700&display=fallback">
@@ -30,15 +30,10 @@
       <div class="container-fluid">
         <div class="row mb-2">
           <div class="col-sm-6">
-            <h1>Listes des agents</h1>
+            <h1>Listes des Operations</h1>
           </div>
           <div class="col-sm-6">
             <ol class="breadcrumb float-sm-right">
-             <td>
-              <a href="ajouterAgent.jsp">
-              <button type="button" class="btn btn-block btn-primary">Nouveau agent</button>
-              </a>
-             </td>
 
             </ol>
           </div>
@@ -58,58 +53,47 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
-                    <th>Id</th>
-                    <th>Nom</th>
-                    <th>Prenom</th>
-                    <th>Addresse</th>
-                    <th>Date_naiss</th>
-                    <th>Telephone</th>
-                    <th>Email</th>
-                    <th>Cni</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Actions</th>
+                    <th>Idagent</th>
+                    <th>Idoperation</th>
+                    <th>Idcompte</th>
+                    <th>Num_compte</th>
+                    <th>Dateoperation</th>
+                    <th>Credit</th>
+                    <th>Debite</th>
+                    <th>Envoie</th>
+                    <th>Recue</th>
+                    <th>TypeOpp</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <c:forEach items="${modelagent.users}" var="c">
+                  <c:forEach items="${model1.operations}" var="c">
                   <tr>
                     <th>${c.agent.idagent}</th>
-                    <th>${c.agent.nom}</th>
-                    <th>${c.agent.prenom}</th>
-                    <th>${c.agent.adresse}</th>
-                    <th>${c.agent.datenaissance}</th>
-                    <th>${c.agent.telephone}</th>
-                    <th>${c.agent.email}</th>
-                    <th>${c.agent.cni}</th>
-                    <th>${c.username}</th>
-                    <th>${c.password}</th>
-                    
-                    <th> 
-                    <c:if test="${c.role.idrole==3}">
-                                <a href="<%= request.getContextPath() %>/templates/viewSiege?action=desigeradmin&id=${c.agent.idagent}"
-                               id="modif"
-                               onChange="document.getElementById('modif').style.display='block'"
-                               class="btn btn-success"><i class="fa fa-fw fa-thumbs-o-up"></i>Designer</a>
-                               </c:if>
-                    </a>         
-                    </th>
-                   </tr>
+                    <th>${c.idoperation}</th>
+                    <th>${c.compte.idcompte}</th>
+                    <th>${c.compte.num_compte}</th>
+                    <th>${c.dateoperation}</th>
+                    <th>${c.credit}</th>
+                    <th>${c.debite}</th>
+                    <th>${c.envoie}</th>
+                    <th>${c.recue}</th>
+                    <th>${c.typeoperation.typeoperation}</th>
+                  </tr>
                   </c:forEach>
                   </tbody>
                   <tfoot>
                   <tr>
-                    <th>Id</th>
-                    <th>Nom</th>
-                    <th>Prenom</th>
-                    <th>Addresse</th>
-                    <th>Date_naiss</th>
-                    <th>Telephone</th>
-                    <th>Email</th>
-                    <th>Cni</th>
-                    <th>Username</th>
-                    <th>Password</th>
-                    <th>Actions</th>
+                    <th>Idagent</th>
+                    <th>Idoperation</th>
+                    <th>Idcompte</th>
+                    <th>Num_compte</th>
+                    <th>Dateoperation</th>
+                    <th>Credit</th>
+                    <th>Debite</th>
+                    <th>Envoie</th>
+                    <th>Recue</th>
+                    <th>TypeOpp</th>
+                    
                   </tr>                 
                   </tfoot>
                 </table>
@@ -137,9 +121,9 @@
 <!-- ./wrapper -->
 
 <!-- jQuery -->
-<script src="../../../plugins/jquery/jquery.min.js"></script>
+<script src="../plugins/jquery/jquery.min.js"></script>
 <!-- Bootstrap 4 -->
-<script src="../../../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="../plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
 <!-- DataTables  & ../Plugins -->
 <script src="../plugins/datatables/jquery.dataTables.min.js"></script>
 <script src="../plugins/datatables-bs4/js/dataTables.bootstrap4.min.js"></script>

@@ -65,7 +65,7 @@ public class Authentification extends HttpServlet {
 			}
 			else
 	         {
-	             request.getRequestDispatcher("index.jsp").forward(request, response);
+				response.sendRedirect("log_error.jsp");
 	         }
 	    }
 			

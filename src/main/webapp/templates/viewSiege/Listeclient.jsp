@@ -80,7 +80,7 @@
                     <th>Email</th>
                     <th>Cni</th>
                     <th>Status</th>
-                    <th>Actions</th>
+                    
                   </tr>
                   </thead>
                   <tbody>
@@ -94,10 +94,6 @@
                     <th>${c.client.email}</th>
                     <th>${c.client.cni}</th>
                     <th>${c.active}</th>
-                    <th> 
-                     <a href="<%= request.getContextPath() %>/templates/viewSiege?action=detailClient&id=${c.client.idclient}"class="btn btn-info btn-sm">
-                     <i class="fa fa-eye"></i></a>                  
-                    </th>
                   </tr>
                   </c:forEach>
                   </tbody>
@@ -111,7 +107,7 @@
                     <th>Email</th>
                     <th>Cni</th>
                     <th>Status</th>
-                    <th>Actions</th>
+                   
                   </tr>                 
                   </tfoot>
                 </table>

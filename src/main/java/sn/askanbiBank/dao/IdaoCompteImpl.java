@@ -76,9 +76,18 @@ public class IdaoCompteImpl  implements IdaoCompte{
 	}
 
 	@Override
-	public Boolean active(Compte t) {
+	public void active(Compte t) {
 		// TODO Auto-generated method stub
-		return null;
+		String sql="UPDATE compte Set active=? where idcompte=?";
+		try {
+			pst= con.prepareStatement(sql);
+			pst.setBoolean(1, t.getActive());
+			pst.setInt(2, t.getIdcompte());
+			pst.executeUpdate();
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+	
 	}
 
 	@Override
@@ -202,6 +211,31 @@ public class IdaoCompteImpl  implements IdaoCompte{
 			
 		}
 		return listeparagence;
+	}
+	public Compte getById(int id) {
+		Compte c =  null;
+		String sql= "SELECT * FROM compte where idcompte=? ";
+		try {
+			pst=con.prepareStatement(sql);
+			pst.setInt(1, id);
+			rs=pst.executeQuery();
+			if (rs.next()) {
+				c =  new Compte();
+				c.setIdcompte(rs.getInt("idcompte"));
+				c.setNum_compte(rs.getLong("num_compte"));
+				c.setSolde(rs.getLong("solde"));
+				c.setDatecreation(rs.getDate("datecreation"));
+				c.setType_compte(rs.getString("type_compte"));
+				c.setActive(rs.getBoolean("active"));
+						
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		// TODO Auto-generated method stub
+		if(c==null) throw new RuntimeException("client non trouvable");
+		return c;
 	}
 
 }
