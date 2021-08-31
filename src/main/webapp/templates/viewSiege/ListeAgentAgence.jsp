@@ -34,7 +34,7 @@
           </div>
           <div class="col-sm-6">
             
-            </ol>
+          
           </div>
         </div>
       </div><!-- /.container-fluid -->

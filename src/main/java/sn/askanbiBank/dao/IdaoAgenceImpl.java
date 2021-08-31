@@ -120,7 +120,8 @@ public class IdaoAgenceImpl implements IdaoAgence {
 	@Override
 	public List<Compte> listeClient() {
 		List<Compte> liste = new ArrayList<Compte>();
-		String sql="SELECT l.idclient,nom,prenom,adresse,datenaissance,telephone,email,civilite,genre,cni,c.idcompte,num_compte,solde,datecreation,type_compte,active FROM client l,compte c WHERE l.idclient=c.idclient and  l.idagent IN (SELECT idagent FROM agent WHERE idagence=1)";
+		String sql="SELECT l.idclient,nom,prenom,adresse,datenaissance,telephone,email,civilite,genre,cni,"
+				+ "c.idcompte,num_compte,solde,datecreation,type_compte,active FROM client l,compte c WHERE l.idclient=c.idclient ";
 		try {
 			pst=con.prepareStatement(sql);
 			rs=pst.executeQuery();
