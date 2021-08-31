@@ -72,6 +72,7 @@
                 <table id="example1" class="table table-bordered table-striped">
                   <thead>
                   <tr>
+                  <th>ID</th>
                     <th>Nom</th>
                     <th>Prenom</th>
                     <th>Addresse</th>
@@ -86,6 +87,7 @@
                   <tbody>
                   <c:forEach items="${modelclient.comptes}" var="c">
                   <tr>
+                     <th>${c.client.idclient}</th>
                     <th>${c.client.nom}</th>
                     <th>${c.client.prenom}</th>
                     <th>${c.client.adresse}</th>
@@ -99,6 +101,7 @@
                   </tbody>
                   <tfoot>
                   <tr>
+                    <th>ID</th>
                     <th>Nom</th>
                     <th>Prenom</th>
                     <th>Addresse</th>

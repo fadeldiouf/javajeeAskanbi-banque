@@ -33,15 +33,7 @@
             <h1>Listes des agents</h1>
           </div>
           <div class="col-sm-6">
-            <ol class="breadcrumb float-sm-right">
-             <td>
-              <a href="ajouterAgent.jsp">
-              <button type="button" class="btn btn-block btn-primary">Nouveau agent</button>
-              </a>
-             </td>
-
-            </ol>
-          </div>
+                   </div>
         </div>
       </div><!-- /.container-fluid -->
     </section>

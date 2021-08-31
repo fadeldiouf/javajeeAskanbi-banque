@@ -298,7 +298,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="<%= request.getContextPath() %>/templates/viewAgent/listeoperation" class="nav-link">
+                <a href="<%= request.getContextPath() %>/templates/viewAgent/?action=listeoperation" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Liste des operations</p>
                 </a>

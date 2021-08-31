@@ -3,13 +3,9 @@ package sn.askanbiBank.dao;
 
 import java.util.List;
 
-import jdk.internal.agent.resources.agent;
 import sn.askanbiBank.domaine.Agence;
-import sn.askanbiBank.domaine.Agent;
-import sn.askanbiBank.domaine.Client;
-import sn.askanbiBank.domaine.Compte;
-import sn.askanbiBank.domaine.Operation;
-import sn.askanbiBank.domaine.User;
+
+
 
 public class Test {
 
